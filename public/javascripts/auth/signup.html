@@ -1,0 +1,24 @@
+<form method="post" action="/auth/signup" novalidate name="form">
+
+	<fieldset class="form-group">
+		<input type="text" class="form-control" name="fullname" ng-model="vm.user.fullname" placeholder="نام و نام خانوادگی" required >
+	</fieldset>
+	<fieldset class="form-group">
+		<input type="email" class="form-control" name="email" ng-model="vm.user.email" placeholder="ایمیل" required>
+	</fieldset>
+	<fieldset class="form-group">
+		<input type="password" class="form-control" name="password" ng-model="vm.user.password" placeholder="پسورد" required ng-minlength="8">
+		<input type="password" class="form-control" name="password2" ng-model="vm.user.password2" placeholder="تکرار پسورد" required>
+		<span class="text-danger" ng-show="form.password2.$dirty && (vm.user.password2 !== vm.user.password)">پسورد ها همخوانی ندارند</span>
+		<span class="text-danger" ng-show="form.password.$dirty && form.password.$invalid">حداقل ۸ کاراکتر</span>
+	</fieldset>
+
+	<fieldset class="form-group">
+		<button type="submit" class="btn btn-sm btn-primary btn-block" ng-disabled="form.$invalid || (vm.user.password !== vm.user.password2)">ثبت نام</button>
+	</fieldset>
+
+</form>	
+<div class="text-xs-center">
+	اکانت دارید؟
+	<a ui-sref="auth" >ورود</a>
+</div>

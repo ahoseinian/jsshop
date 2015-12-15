@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="col-xs-12">
+		<div class="card card-block" ui-view>
+			
+			<form method="post" action="/auth/login">
+			
+				<div class="form-group">
+					<input type="text" class="form-control" name="email" placeholder="username">
+					<input type="password" class="form-control" name="password" placeholder="password">
+				</div>
+
+				<div class="form-group">
+					<button type="submit" class="btn btn-sm btn-primary btn-block">ورود</button>
+				</div>
+
+			</form>	
+			<div class="text-xs-center">
+				<a ui-sref="auth.signup" >ثبت نام</a>
+			</div>
+		</div>
+	</div>
+</div>

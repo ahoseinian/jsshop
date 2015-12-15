@@ -1,25 +1,80 @@
 var passport = require('passport');
-var Strategy = require('passport-http').BasicStrategy;
-var User = require('../models/user.js');
+var LocalStrategy = require('passport-local').Strategy;
+var User = require('../models/user');
 
-passport.use(new Strategy(
-  function(userid, password, done) {
-    User.findOne({ username: userid }, function (err, user) {
+passport.use(new LocalStrategy({
+    usernameField: 'email',
+  },
+  function(username, password, done) {
+    User.findOne({ email: username }, function (err, user) {
       if (err) { return done(err); }
-      if (!user) { return done(null, false); }
-      if (!user.verifyPassword(password)) { return done(null, false); }
-      // user.password = undefined;
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
       return done(null, user);
     });
   }
 ));
 
 passport.serializeUser(function(user, done) {
-  done(null, user);
+  done(null, user.id);
 });
 
-passport.deserializeUser(function(user, done) {
-  done(null, user);
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    user.password = undefined;
+    done(err, user);
+  });
 });
+
+
+
+
+passport
+  .use('local-signup', new LocalStrategy({
+    usernameField : 'email',
+    passReqToCallback : true // allows us to pass back the entire request to the callback
+  },
+  function(req, email, password, done) {
+
+    // asynchronous
+    // User.findOne wont fire unless data is sent back
+    process.nextTick(function() {
+
+      // find a user whose email is the same as the forms email
+      // we are checking to see if the user trying to login already exists
+      User.findOne({ 'email' :  email }, function(err, user) {
+        // if there are any errors, return the error
+        if (err) return done(err);
+
+        // check to see if theres already a user with that email
+        if (user) {
+            return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+        } else {
+
+            // if there is no user with that email
+            // create the user
+            var newUser            = new User();
+
+            // set the user's local credentials
+            newUser.email    = email;
+            newUser.password = newUser.generateHash(password);
+            newUser.fullname = req.body.fullname;
+
+            // save the user
+            newUser.save(function(err) {
+                if (err) throw err;
+
+                return done(null, newUser);
+            });
+        }
+
+      });    
+    });
+  }));
+
 
 module.exports = passport;

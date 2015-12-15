@@ -11,16 +11,20 @@ mongoose.connect('mongodb://localhost/jsshop');
 
 var app = express();
 
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'bower_components')));
+app.use(express.static(path.join(__dirname, 'storage')));
+
 app.use(bodyParser.json({limit: '1mb'}));
 app.use(bodyParser.urlencoded({limit: '1mb', extended: true}));
 
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,9 +37,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'bower_components')));
-app.use(express.static(path.join(__dirname, 'storage')));
 
 app.use(require('./config/assets'));
 app.use(require('./routes'));

@@ -10,6 +10,7 @@
 			'app.routes.customers',
 			'app.routes.products', 
 			'app.routes.purchases', 
+			'app.routes.auth', 
 			'angular-loading-bar',
 		])
 		.config(config);
