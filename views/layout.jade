@@ -1,0 +1,48 @@
+doctype html
+html(ng-app="myApp")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(http-equiv="x-ua-compatible", content="ie=edge")
+    title= title
+    each file in assets.main.css
+      link(rel='stylesheet', href= file)
+  body
+    .container
+      nav.navbar.navbar-light.bg-faded.m-b
+        a.navbar-brand(href='#') سالار
+        ul.nav.navbar-nav
+          li.nav-item
+            a.nav-link(ui-sref='home', ui-sref-active="active") خانه 
+          li.nav-item
+            a.nav-link(ui-sref='users', ui-sref-active="active") کاربران
+          li.nav-item
+            a.nav-link(ui-sref='customers', ui-sref-active="active") مشتریان
+          li.nav-item
+            a.nav-link(ui-sref='models', ui-sref-active="active") دسته بندی
+        form.form-inline.navbar-form.pull-xs-left
+          input.form-control(type='text', placeholder='جستجو')
+          button.btn.btn-success-outline(type='submit') جستجو
+
+      nav.navbar.navbar-light.bg-faded.m-b-1
+        ul.nav.navbar-nav
+          li.nav-item
+            a.nav-link(ui-sref='products', ui-sref-active="active") محصولات
+          li.nav-item
+            a.nav-link(ui-sref='purchases', ui-sref-active="active") سفارش 
+          li.nav-item
+            a.nav-link(ui-sref='home', ui-sref-active="active") تولیدات 
+          li.nav-item
+            a.nav-link(ui-sref='home', ui-sref-active="active") خروجی 
+          li.nav-item
+            a.nav-link(ui-sref='home', ui-sref-active="active") انبار 
+          li.nav-item
+            a.nav-link(ui-sref='home', ui-sref-active="active") برگشتی 
+          li.nav-item
+            a.nav-link(ui-sref='home', ui-sref-active="active") گزارشات 
+      block content
+  
+
+    each file in assets.main.js
+      script(src= file)
+

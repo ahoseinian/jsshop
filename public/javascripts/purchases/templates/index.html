@@ -1,0 +1,10 @@
+<h2>Purchases index</h2>
+<ul class="nav nav-tabs">
+  <li class="nav-item" ng-repeat="model in vm.models">
+    <a class="nav-link" ui-sref-active="active" ui-sref="purchases.models({id: model._id})">{{model.name}}</a>
+  </li>
+</ul>
+<div ui-view class="p-t-1"></div>
+
+<div class="col-md-9">
+</div>
