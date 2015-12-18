@@ -1,23 +1,19 @@
-<div class="card  product-box">
-	<div class="product-buttons" ng-if="vm">
-		<span confirm-btn click-func="vm.pServ.remove(product)"></span>
-		<button class="btn btn-info btn-sm" ng-click="vm.pServ.current = product; vm.setCurCat($root.cats, product.cat);"  data-toggle="modal" data-target=".bd-example-modal-sm" >ویرایش</button>
-	</div>
-	<div class="card-header">
-		<h4>{{product.name}}</h4>
-	</div>
-
-	<img ng-src="/images/products/{{product._id}}.jpg" alt="{{product.name}} image">
-	
-	<ul class="list-group list-group-flush">
-		<li class="list-group-item"> دسته بندی: {{product.cat}} </li>
-		<li class="list-group-item"> فروشنده: {{product._user.fullname}} </li>
-		<li class="list-group-item"> قیمت: {{product.price | number}} تومان</li>
-		<li class="list-group-item" ng-repeat="(key, val) in product.dtls" ng-if="val">{{key}}: {{val}}</li>
-	</ul>
-
-	<div class="card-block">
-		<p class="text-muted">{{product.info}}</p>
-	</div>
-
+<div class="card product-box">
+  <div class="product-buttons" ng-if="vm">
+    <span confirm-btn click-func="vm.pServ.remove(product)"></span>
+    <button class="btn btn-info btn-sm" ng-click="vm.pServ.current = product; vm.setCurCat($root.cats, product.cat);" data-toggle="modal" data-target=".bd-example-modal-sm">ویرایش</button>
+  </div>
+  <div class="card-header">
+    <h4>{{product.name}}</h4>
+  </div>
+  <img ng-src="/images/products/{{product._id}}.jpg" alt="{{product.name}} image">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"> دسته بندی: {{product.cat}} </li>
+    <li class="list-group-item"> فروشنده: {{product._user.fullname}} </li>
+    <li class="list-group-item"> قیمت: {{product.price | number}} تومان</li>
+    <li class="list-group-item" ng-repeat="(key, val) in product.dtls" ng-if="val">{{key}}: {{val}}</li>
+  </ul>
+  <div class="card-block">
+    <p class="text-muted">{{product.info}}</p>
+  </div>
 </div>

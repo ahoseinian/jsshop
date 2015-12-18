@@ -1,48 +1,36 @@
-<!-- Small modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">جدید</button>
-
 <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content p-a-1">
-			<form name="form" novalidate ng-submit="vm.pServ.save(user)">
-				
-				<fieldset class="form-group">
-					<input type="text" class="form-control" ng-model="vm.pServ.current.name" placeholder="نام محصول" required>
-				</fieldset>
-
-				<fieldset class="form-group">
-					<input type="number" class="form-control" ng-model="vm.pServ.current.price" placeholder="قیمت" required>
-				</fieldset>
-
-				<fieldset class="form-group">
-					<textarea class="form-control" ng-model="vm.pServ.current.info" placeholder="اطلاعات" required rows="6"></textarea>
-				</fieldset>
-
-				<fieldset class="form-group">
-					<input class="form-control" type="file" fileread="vm.pServ.current.image">
-				</fieldset>
-
-				<fieldset class="form-group">
-					<select class="form-control" ng-options="cat.name for cat in cats" ng-model="vm.curCat" ng-change="vm.pServ.current.cat = vm.curCat.name" required>
-						<option value="">دسته بندی</option>
-					</select>
-				</fieldset>
-
-				<h4 class="text-muted">اطلاعات اضافی</h4>
-				<fieldset class="form-group" ng-repeat="fld in vm.curCat.dtls.texts">
-					<input type="text" class="form-control" ng-model="vm.pServ.current.dtls[fld]" placeholder="{{fld}}" >
-				</fieldset>
-				<button class="btn btn-primary" type="submit" ng-disabled="form.$invalid">ذخیره</button>
-			</form>
-
-		</div>
-	</div>
+      <form name="form" novalidate ng-submit="vm.pServ.save(user)">
+        <fieldset class="form-group">
+          <input type="text" class="form-control" ng-model="vm.pServ.current.name" placeholder="نام محصول" required>
+        </fieldset>
+        <fieldset class="form-group">
+          <input type="number" class="form-control" ng-model="vm.pServ.current.price" placeholder="قیمت" required>
+        </fieldset>
+        <fieldset class="form-group">
+          <textarea class="form-control" ng-model="vm.pServ.current.info" placeholder="اطلاعات" required rows="6"></textarea>
+        </fieldset>
+        <fieldset class="form-group">
+          <input class="form-control" type="file" fileread="vm.pServ.current.image">
+        </fieldset>
+        <fieldset class="form-group">
+          <select class="form-control" ng-options="cat.name for cat in cats" ng-model="vm.curCat" ng-change="vm.pServ.current.cat = vm.curCat.name" required>
+            <option value="">دسته بندی</option>
+          </select>
+        </fieldset>
+        <h4 class="text-muted">اطلاعات اضافی</h4>
+        <fieldset class="form-group" ng-repeat="fld in vm.curCat.dtls.texts">
+          <input type="text" class="form-control" ng-model="vm.pServ.current.dtls[fld]" placeholder="{{fld}}">
+        </fieldset>
+        <button class="btn btn-primary" type="submit" ng-disabled="form.$invalid">ذخیره</button>
+      </form>
+    </div>
+  </div>
 </div>
-
 <div class="row m-y-1">
-	
-	<div class="col-md-3 " ng-repeat="product in vm.pServ.items">
-		<product-card vm="vm" product="product"></product-card>
-	</div>
-
+  <div class="col-md-3 " ng-repeat="product in vm.pServ.items">
+    <product-card vm="vm" product="product"></product-card>
+  </div>
 </div>
