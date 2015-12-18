@@ -1,4 +1,4 @@
-html{
+html {
   font-size: 14px;
 }
 
@@ -7,7 +7,7 @@ html{
   line-height: 2;
 }
 
-.absolute-left{
+.absolute-left {
   position: absolute;
   left: -5px;
 }
@@ -18,11 +18,11 @@ html{
   column-count: 4;
 }
 
-.card img{
-	width: 100%;
+.card img {
+  width: 100%;
 }
 
-.card-bottom{
+.card-bottom {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -32,11 +32,16 @@ html{
   padding: .25rem 1.25rem;
 }
 
-.product-box{
+.product-box {
   height: 500px;
   overflow: overlay;
+  word-wrap: break-word;
 }
-
-.purchase-form fieldset.form-group{
-  height: 35px; 
+.product-box .product-buttons{
+  position: absolute;
+  left: 5px;
+  top:55px;
+}
+.purchase-form fieldset.form-group {
+  height: 35px;
 }

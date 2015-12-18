@@ -7,13 +7,14 @@
 			'app.common',
 			'app.directives', 
 			'angular-loading-bar',
+			'panelApp.products',
 		])
 		.config(config);
 
 
 	config.$inject = ['$stateProvider', '$urlRouterProvider'];
 	function config($stateProvider, $urlRouterProvider){
-		$urlRouterProvider.otherwise("/home");
+		$urlRouterProvider.otherwise("/products");
 
 		$stateProvider
 			.state('home', {

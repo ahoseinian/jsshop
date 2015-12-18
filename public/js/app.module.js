@@ -1,25 +1,31 @@
-(function(){
-	'use strict';
-	angular
-		.module('myApp', [
-			'ui.router',
-			'app.common',
-			'app.directives', 
-			'app.routes.products', 
-			'app.routes.auth', 
-			'angular-loading-bar',
-		])
-		.config(config);
+(function () {
+  'use strict';
+  angular
+    .module('myApp', [
+      'ui.router',
+      'app.common',
+      'app.directives',
+      'app.products',
+      'app.routes.auth',
+      'angular-loading-bar',
+    ])
+    .config(config);
 
-	config.$inject = ['$stateProvider', '$urlRouterProvider'];
-	function config($stateProvider, $urlRouterProvider){
-		$urlRouterProvider.otherwise("/home");
+  config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-		$stateProvider
-			.state('home', {
-				url: "/home",
-				templateUrl: "templates/home.html",
-			})
-	};
+  function config($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise("/home");
+
+    $stateProvider
+      .state('home', {
+        url: "/home",
+        templateUrl: "/js/home.html",
+        controller: 'HomeController',
+        controllerAs: 'vm',
+      })
+  };
+
+
 
 })();
+

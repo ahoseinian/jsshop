@@ -27,8 +27,10 @@
     },
     "jspanel":{
       "public/build/js/front.min.js":[
-        "public/js/common/**.js",
-        "public/js/directives/**.js",
+        "public/js/common/**/*.module.js",
+        "public/js/common/**/*.js",
+        "public/js/directives/**/*.module.js",
+        "public/js/directives/**/*.js",
         "public/jspanel/**/*.module.js",
         "public/jspanel/**/*.js"
       ]
