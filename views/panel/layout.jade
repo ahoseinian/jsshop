@@ -1,5 +1,5 @@
 doctype html
-html(ng-app="myApp")
+html(ng-app="panelApp")
   head
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1")
@@ -12,10 +12,12 @@ html(ng-app="myApp")
       nav.navbar.navbar-light.bg-faded.m-b-1
         button.navbar-toggler.hidden-sm-up(type="button", data-toggle="collapse", data-target="#exCollapsingNavbar") &#9776;
         #exCollapsingNavbar.collapse.navbar-toggleable-xs
-          a.navbar-brand(href='#') سالار
+          a.navbar-brand(href='/') سالار
           ul.nav.navbar-nav
             li.nav-item
               a.nav-link(ui-sref='home', ui-sref-active="active") خانه 
+            li.nav-item
+              a.nav-link(ui-sref='products', ui-sref-active="active") محصولات 
 
       block content
   

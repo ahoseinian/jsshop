@@ -1,13 +1,7 @@
 html{
   font-size: 14px;
 }
-@font-face {
-  font-family: yekan-web;
-  src: url(/fonts/YekanWeb-Regular.woff);
-}
-body{
-	font-family: yekan-web, tahoma;
-}
+
 .form-control {
   padding: .1rem .75rem;
   line-height: 2;

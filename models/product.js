@@ -3,9 +3,13 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 var ProductSchema = new Schema({
-  code: {type: Number, required: true},
-  // _model: {type: Schema.Types.ObjectId, ref: 'Model'}
-}, { timestamps: { createdAt: 'created_at' }, strict: false});
+  name: {type: String, required: true},
+  price: Number,
+  info: String,
+  cat: String,
+  dtls: {},
+  _user: {type: Schema.Types.ObjectId, ref: 'User'},
+}, { timestamps: { createdAt: 'created_at' }});
 
 ProductSchema.plugin(mongoosePaginate);
 
