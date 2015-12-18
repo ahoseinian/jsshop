@@ -16,9 +16,19 @@
       		"bower_components/angular-ui-router/release/angular-ui-router.min.js",
           "bower_components/bootstrap/dist/js/bootstrap.min.js",
           "bower_components/angular-loading-bar/build/loading-bar.min.js",
-          "bower_components/toastr/toastr.js",
-          "public/javascripts/**/*.module.js",
-          "public/javascripts/**/*.js"
+          "bower_components/toastr/toastr.js"
+      ]
+    },
+    "jspublic":{
+      "public/build/js/front.min.js":[
+        "public/js/**/*.module.js",
+        "public/js/**/*.js"
+      ]
+    },
+    "jspanel":{
+      "public/build/js/front.min.js":[
+        "public/jspanel/**/*.module.js",
+        "public/jspanel/**/*.js"
       ]
     }
   }

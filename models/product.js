@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 
 var ProductSchema = new Schema({
   code: {type: Number, required: true},
-  _model: {type: Schema.Types.ObjectId, ref: 'Model'}
+  // _model: {type: Schema.Types.ObjectId, ref: 'Model'}
 }, { timestamps: { createdAt: 'created_at' }, strict: false});
 
 ProductSchema.plugin(mongoosePaginate);

@@ -15,9 +15,9 @@ router.get('/logout', function(req, res){
 
 // process the signup form
 router.post('/signup', passport.authenticate('local-signup', {
-    successRedirect : '/', // redirect to the secure profile section
-    failureRedirect : '/#/auth/signup?error=true', // redirect back to the signup page if there is an error
-    failureFlash : true // allow flash messages
+  successRedirect : '/', // redirect to the secure profile section
+  failureRedirect : '/#/auth/signup?error=true', // redirect back to the signup page if there is an error
+  failureFlash : true // allow flash messages
 }));
 
 

@@ -5,11 +5,7 @@
 			'ui.router',
 			'app.common',
 			'app.directives', 
-			'app.routes.users', 
-			'app.routes.models', 
-			'app.routes.customers',
 			'app.routes.products', 
-			'app.routes.purchases', 
 			'app.routes.auth', 
 			'angular-loading-bar',
 		])

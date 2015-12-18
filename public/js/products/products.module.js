@@ -11,7 +11,7 @@
 
 				.state('products', {
 					url: "/products",
-					templateUrl: "/javascripts/products/templates/index.html",
+					templateUrl: "/js/products/templates/index.html",
 					controller: 'ProductsController',
 					controllerAs: 'vm',
 					resolve:{
@@ -23,7 +23,7 @@
 
 				.state('products.models', {
 					url: "/models/:id",
-					templateUrl: "/javascripts/products/templates/models.html",
+					templateUrl: "/js/products/templates/models.html",
 					controller: 'ProductsModelsController',
 					controllerAs: 'vm',
 					resolve:{
@@ -35,14 +35,14 @@
 
 				.state('products.models.new', {
 					url: "/new/:pid",
-					templateUrl: "/javascripts/products/templates/new.html",
+					templateUrl: "/js/products/templates/new.html",
 					controller: 'ProductsModelsNewController',
 					controllerAs: 'vm',
 				})
 
 				.state('products.models.search', {
 					url: '/search',
-					templateUrl: "/javascripts/products/templates/search.html",
+					templateUrl: "/js/products/templates/search.html",
 					controller: 'ProductsModelsSearchController',
 					controllerAs: 'vm',
 				})

@@ -16,24 +16,11 @@ html(ng-app="myApp")
           ul.nav.navbar-nav
             li.nav-item
               a.nav-link(ui-sref='home', ui-sref-active="active") خانه 
-            //- li.nav-item
-            //-   a.nav-link(ui-sref='models', ui-sref-active="active") دسته بندی
-
-            if !user
-              li.nav-item
-                a.nav-link(ui-sref='auth', ui-sref-active="active") ورود / ثبت نام
-            else
-              li.nav-item.dropdown
-                a.nav-link.dropdown-toggle(data-toggle="dropdown", href="#", role="button", aria-haspopup="true", aria-expanded="false")= user.fullname
-                .dropdown-menu
-                  a.dropdown-item(href="/auth/logout") خروج
-                  .dropdown-divider
-                  a.dropdown-item(href="/panel") پنل کاربری
 
       block content
   
 
     each file in assets.main.js
       script(src= file)
-    each file in assets.main.jspublic
+    each file in assets.main.jspanel
       script(src= file)

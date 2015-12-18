@@ -8,7 +8,7 @@
 	function confirmBtn() {
 	  var directive = {
 	    link: link,
-	    templateUrl: '/javascripts/directives/confirm/confirm.html',
+	    templateUrl: '/js/directives/confirm/confirm.html',
 	    scope:{
 	    	clickFunc: '&'
 	    },

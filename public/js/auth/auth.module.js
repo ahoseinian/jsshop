@@ -10,12 +10,12 @@
 		$stateProvider
 			.state('auth', {
 				url: "/auth",
-				templateUrl: "/javascripts/auth/login.html",
+				templateUrl: "/js/auth/login.html",
 			})
 
 			.state('auth.signup', {
 				url: "/signup",
-				templateUrl: "/javascripts/auth/signup.html",
+				templateUrl: "/js/auth/signup.html",
 				controller: "SignUpController",
 				controllerAs: "vm",
 			})
