@@ -27,15 +27,24 @@ html(ng-app="myApp")
                   a.nav-link.dropdown-toggle(data-toggle="dropdown", href="#", role="button", aria-haspopup="true", aria-expanded="false")
                     = user.fullname
 
-                  if user.seller
-                    .dropdown-menu
-                      a.dropdown-item(href="/auth/logout")
-                        span.fa.fa-sign-out
-                        span خروج
+                  .dropdown-menu
+                    a.dropdown-item(href="/auth/logout")
+                      span.fa.fa-sign-out
+                      span خروج
+                    if user.seller
                       .dropdown-divider
                       a.dropdown-item(href="/panel") 
                         span.fa.fa-user
                         span پنل کاربری
+
+                    else if user.admin
+                      .dropdown-divider
+                      a.dropdown-item(href="/admin")
+                        span.fa.fa-user
+                        span پنل ادمین
+
+
+
 
       block content
   

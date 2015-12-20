@@ -1,0 +1,21 @@
+<h1>Categories page</h1>
+<table class="table rtl">
+	<tr ng-repeat="cat in vm.srv.items">
+		<td>{{cat.name}}</td>
+		<td><span confirm-btn click-func="vm.srv.remove(cat)"></span></td>
+	</tr>
+</table>
+
+<button class="btn btn-primary" data-toggle="modal" data-target=".modal"><span class="fa fa-plus"></span>افزودن</button>
+<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content p-a-1">
+      <form novalidate name="form" ng-submit="vm.srv.save()">
+      	<fieldset class="form-group">
+      		<input type="text" ng-model="vm.srv.cur.name" class="form-control" placeholder="نام" required>
+      	</fieldset>	
+      	<button class="btn btn-primary" ng-disabled="form.$invalid">ذخیره</button>
+      </form>
+    </div>
+  </div>
+</div>

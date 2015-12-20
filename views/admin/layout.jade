@@ -1,0 +1,28 @@
+doctype html
+html(ng-app="adminApp")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(http-equiv="x-ua-compatible", content="ie=edge")
+    title= title
+    each file in assets.main.css
+      link(rel='stylesheet', href= file)
+  body
+    .container
+      nav.navbar.navbar-light.bg-faded.m-b-1
+        button.navbar-toggler.hidden-sm-up(type="button", data-toggle="collapse", data-target="#exCollapsingNavbar") &#9776;
+        #exCollapsingNavbar.collapse.navbar-toggleable-xs
+          a.navbar-brand(href='/') سالار
+          ul.nav.navbar-nav
+            li.nav-item
+              a.nav-link(ui-sref='home', ui-sref-active="active") خانه 
+            li.nav-item
+              a.nav-link(ui-sref='categories', ui-sref-active="active") دسته بندی ها 
+
+      block content
+  
+
+    each file in assets.main.js
+      script(src= file)
+    each file in assets.main.jsadmin
+      script(src= file)

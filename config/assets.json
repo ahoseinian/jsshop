@@ -39,6 +39,16 @@
         "public/jspanel/**/*.module.js",
         "public/jspanel/**/*.js"
       ]
+    },
+    "jsadmin": {
+      "public/build/js/front.min.js": [
+        "public/js/common/**/*.module.js",
+        "public/js/common/**/*.js",
+        "public/js/directives/**/*.module.js",
+        "public/js/directives/**/*.js",
+        "public/jsadmin/**/*.module.js",
+        "public/jsadmin/**/*.js"
+      ]
     }
   }
 }

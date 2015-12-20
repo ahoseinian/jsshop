@@ -13,7 +13,7 @@
       .state('categories', {
         url: '/categories/:name',
         templateUrl: '/js/categories/index.html',
-        contoroller: 'CategoriesController',
+        controller: 'CategoriesController',
         controllerAs: 'vm',
       })
   }
