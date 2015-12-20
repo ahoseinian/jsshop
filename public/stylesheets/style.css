@@ -37,11 +37,43 @@ html {
   overflow: overlay;
   word-wrap: break-word;
 }
-.product-box .product-buttons{
+
+.product-box .product-buttons {
   position: absolute;
   left: 5px;
-  top:55px;
+  top: 55px;
 }
-.purchase-form fieldset.form-group {
-  height: 35px;
+
+.slick-prev:before,
+.slick-next:before {
+  color: black
+}
+
+.slick-slider .card .quick-view-btn {
+  position: absolute;
+  width: 80%;
+  left: 50%;
+  margin-left: -40%;
+  text-align: center;
+  bottom: 40px;
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+.slick-slider .card:hover .quick-view-btn {
+  opacity: 1;
+}
+
+.slick-next {
+  right: -7px;
+}
+
+.slick-prev {
+  left: -20px;
+}
+
+.fa {
+  margin: 0 0 0 4px;
+  position: relative;
+  top: 3px;
 }

@@ -1,7 +1,6 @@
 'use strict';
 
-var assetmanager = require('assetmanager'),
-  obj = {};
+var assetmanager = require('assetmanager');
 
 var assets = assetmanager.process({
   assets: require('./assets.json'),
@@ -13,9 +12,12 @@ module.exports = function (req, res, next) {
   assets.main.js = assets.main.js.map(removeWebRoots);
   assets.main.css = assets.main.css.map(removeWebRoots);
 
-  function removeWebRoots(f){
-    return f.replace('bower_components','');
+  function removeWebRoots(f) {
+    return f.replace('bower_components', '');
   }
-  res.locals = { assets: assets };
+  res.locals = {
+    assets: assets
+  };
   next();
 };
+

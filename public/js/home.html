@@ -1,7 +1,25 @@
-<h1>HOME</h1>
-
 <div class="row">
-	<div class="col-md-3" ng-repeat="product in vm.pServ.items">
-		<product-card product="product"></product-card>
-	</div>
+  <div class="col-md-8 col-xs-12">
+    <product-slider class="ltr"></product-slider>
+    <product-slider class="ltr"></product-slider>
+  </div>
+  <div class="col-xs-12 col-md-4 ">
+  	<img src="/images/products/56767c535954208e78ea4453.jpg" style="width:100%">
+  </div>
+</div>
+<div class="modal fade quick-view-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content p-a-1">
+      <div class="row">
+        <div class="col-xs-4 ">
+          <img ng-src="/images/products/{{vm.pServ.current._id}}.jpg" width="170">
+        </div>
+        <div class="col-xs-8 rtl">
+          <h2>{{vm.pServ.current.name}}</h2>
+          <p class="text-muted">{{vm.pServ.current.info}}</p>
+          <p>{{vm.pServ.current.price | number}} تومان</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

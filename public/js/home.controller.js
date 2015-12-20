@@ -5,11 +5,13 @@
     .module('myApp')
     .controller('HomeController', HomeController);
 
-  HomeController.$inject = ['product'];
-  function HomeController(product) {
-  	var vm = this;
-  	vm.pServ = product;
-  	product.getAll();
+  HomeController.$inject = ['product', '$timeout'];
+
+  function HomeController(product, $timeout) {
+    var vm = this;
+    vm.pServ = product;
+
+
   }
 })();
 

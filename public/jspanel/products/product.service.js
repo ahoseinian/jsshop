@@ -9,7 +9,7 @@
   productService.$inject = ['$http'];
 
   function productService($http) {
-    var BASE_URL = '/api/products/';
+    var BASE_URL = '/panel/products/';
     var ftry = {
       items: [],
       current: {},
@@ -27,8 +27,7 @@
       });
     }
 
-    function save(userId) {
-      ftry.current._user = userId;
+    function save() {
       if (ftry.current._id) update(ftry.current);
       else insert(ftry.current);
       ftry.current = {};

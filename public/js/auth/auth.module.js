@@ -9,8 +9,10 @@
 
 		$stateProvider
 			.state('auth', {
-				url: "/auth",
+				url: "/auth/:state?",
 				templateUrl: "/js/auth/login.html",
+				controller: 'AuthController',
+				controllerAs: 'vm',
 			})
 
 			.state('auth.signup', {

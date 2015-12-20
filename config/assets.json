@@ -1,32 +1,37 @@
 {
   "main": {
     "css": {
-        "public/build/css/main.min.css": [
-            "bower_components/bootstrap/dist/css/bootstrap.css",
-            "bower_components/angular-loading-bar/build/loading-bar.min.css",
-            "bower_components/toastr/toastr.css",
-            "public/stylesheets/**/*.css"
-
-        ]
+      "public/build/css/main.min.css": [
+        "bower_components/bootstrap/dist/css/bootstrap.css",
+        "bower_components/font-awesome/css/font-awesome.min.css",
+        "bower_components/angular-loading-bar/build/loading-bar.min.css",
+        "bower_components/toastr/toastr.css",
+        "bower_components/slick-carousel/slick/slick.css",
+        "bower_components/slick-carousel/slick/slick-theme.css",
+        "bower_components/bootstrap-v4-rtl/rtl.css",
+        "public/stylesheets/**/*.css"
+      ]
     },
     "js": {
       "public/build/js/main.min.js": [
-      		"bower_components/jquery/dist/jquery.min.js",
-      		"bower_components/angular/angular.min.js",
-      		"bower_components/angular-ui-router/release/angular-ui-router.min.js",
-          "bower_components/bootstrap/dist/js/bootstrap.min.js",
-          "bower_components/angular-loading-bar/build/loading-bar.min.js",
-          "bower_components/toastr/toastr.js"
+        "bower_components/jquery/dist/jquery.min.js",
+        "bower_components/angular/angular.min.js",
+        "bower_components/angular-ui-router/release/angular-ui-router.min.js",
+        "bower_components/tether/dist/js/tether.js",
+        "bower_components/bootstrap/dist/js/bootstrap.min.js",
+        "bower_components/angular-loading-bar/build/loading-bar.min.js",
+        "bower_components/toastr/toastr.js",
+        "bower_components/slick-carousel/slick/slick.min.js"
       ]
     },
-    "jspublic":{
-      "public/build/js/front.min.js":[
+    "jspublic": {
+      "public/build/js/front.min.js": [
         "public/js/**/*.module.js",
         "public/js/**/*.js"
       ]
     },
-    "jspanel":{
-      "public/build/js/front.min.js":[
+    "jspanel": {
+      "public/build/js/front.min.js": [
         "public/js/common/**/*.module.js",
         "public/js/common/**/*.js",
         "public/js/directives/**/*.module.js",
@@ -37,3 +42,4 @@
     }
   }
 }
+

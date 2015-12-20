@@ -7,6 +7,7 @@
       'app.directives',
       'app.products',
       'app.routes.auth',
+      'app.categories',
       'angular-loading-bar',
     ])
     .config(config);

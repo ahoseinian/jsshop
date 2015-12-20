@@ -12,7 +12,9 @@
 
   	var ftry = {
   		items: [],
+      current: {},
   		getAll,
+      getLatest,
   	};
 
   	return ftry;	
@@ -24,6 +26,9 @@
       });
     }
 
+    function getLatest() {
+      return $http.get(BASE_URL);
+    }
   }
 })();
 
