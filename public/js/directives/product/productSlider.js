@@ -24,6 +24,8 @@
             slidesToShow: 4,
             slidesToScroll: 1,
             rtl: true,
+            mobileFirst: true,
+            swipeToSlide: true,
           });
       })
 

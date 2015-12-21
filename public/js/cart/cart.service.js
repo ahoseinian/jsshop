@@ -11,13 +11,29 @@
     var ftry = {
       items: [],
       addItem,
+      getTotal,
+      drop,
     };
     return ftry;
 
     function addItem(itm) {
-      if (!hasItem(itm)) ftry.items.push(itm);
+      if (hasItem(itm)){
+        toastr.warning("کالا در سبد موجود میباشد");
+        return false;
+      }
+      ftry.items.push(itm);
       toastr.success("کالا به سبد افزوده شد");
-      $('.modal').modal('hide');
+    }
+
+    function getTotal(){
+      return ftry.items.reduce(function(a, b){
+        return a + b.price;
+      },0)
+    }
+
+    function drop(){
+      ftry.items = [];
+      toastr.success("سبد خرید خالی شد");
     }
 
     //private methods
@@ -26,6 +42,8 @@
         return one._id == itm._id;
       });
     }
+
+
   }
 })();
 

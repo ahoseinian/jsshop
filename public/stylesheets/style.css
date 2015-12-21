@@ -46,7 +46,7 @@ html {
 
 .slick-prev:before,
 .slick-next:before {
-  color: black
+  color: white;
 }
 
 .slick-slider .card .quick-view-btn {
@@ -65,11 +65,12 @@ html {
 }
 
 .slick-next {
-  right: -7px;
+  right: 17px;
 }
 
 .slick-prev {
-  left: -20px;
+  left: 2px;
+  z-index: 5;
 }
 
 .cat-dropdown {

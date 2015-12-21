@@ -16,7 +16,7 @@
           <input class="form-control" type="file" fileread="vm.pServ.current.image">
         </fieldset>
         <fieldset class="form-group">
-          <select class="form-control" ng-options="cat.name for cat in cats" ng-model="vm.curCat" ng-change="vm.pServ.current.cat = vm.curCat.name" required>
+          <select class="form-control" ng-options="cat._id as cat.name for cat in cats" ng-model="vm.pServ.current._category._id" required>
             <option value="">دسته بندی</option>
           </select>
         </fieldset>
