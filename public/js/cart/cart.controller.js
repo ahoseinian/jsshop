@@ -5,10 +5,11 @@
     .module('app.cart')
     .controller('CartController', CartController);
 
-  CartController.$inject = [];
+  CartController.$inject = ['cartService'];
 
-  function CartController() {
-
+  function CartController(cartService) {
+  	var vm = this;
+  	vm.srv = cartService;
   }
 })();
 

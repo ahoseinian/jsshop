@@ -8,8 +8,6 @@
   config.$inject = ['$stateProvider'];
 
   function config($stateProvider) {
-  	$stateProvider
-  		.state('/cart');
   }
 })();
 

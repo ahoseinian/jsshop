@@ -9,8 +9,10 @@
 
   function config($stateProvider) {
     $stateProvider
-      .state('products', {
+      .state('app.products', {
+        url:'/products/:name',
       	templateUrl: '/js/products/index.html',
+        controller: 'ProductController as vm',
       })
   }
 })();

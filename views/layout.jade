@@ -28,8 +28,13 @@ html(ng-app="myApp")
                           a(ui-sref="app.categories({name: '#{secondChild.name}'})")= secondChild.name
 
             .pull-xs-left
-              li.nav-item(ui-view="cart")
-                
+              li.nav-item.dropdown
+                a.nav-link.dropdown-toggle(data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") 
+                  span.fa.fa-shopping-cart
+                  span سبد خرید
+
+                .dropdown-menu.cart-dropdown(ui-view="cart")
+                 
 
 
               if !user

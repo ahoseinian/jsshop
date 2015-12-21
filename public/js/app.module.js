@@ -8,6 +8,7 @@
       'app.products',
       'app.routes.auth',
       'app.categories',
+      'app.cart',
       'angular-loading-bar',
     ])
     .config(config);
@@ -23,6 +24,7 @@
         views: {
           cart: {
             templateUrl: '/js/cart/index.html',
+            controller: 'CartController as vm'
           },
 
           '': {
@@ -34,9 +36,6 @@
       })
       .state('app.home', {
         url: "/home",
-        templateUrl: "/js/home.html",
-        controller: 'HomeController',
-        controllerAs: 'vm',
       })
   };
 

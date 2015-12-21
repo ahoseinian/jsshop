@@ -30,8 +30,7 @@
 
       scope.quickView = function (itm) {
         product.current = itm;
-        $('.quick-view-modal')
-          .modal('show');
+        $('.quick-view-modal').modal('show');
       }
     }
   }

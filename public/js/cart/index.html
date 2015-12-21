@@ -1,1 +1,16 @@
-cart
+<div class="p-a-1">
+	<h3>سبد خرید</h3>
+	<h5 class="text-xs-center text-muted p-a-1" ng-if="!vm.srv.items.length">کالایی به سبد اضافه نشده است</h5>
+
+	<div ng-if="vm.srv.items.length">
+		<table class="table table-sm m-t-1">
+			<tr ng-repeat="item in vm.srv.items">
+				<td>{{item.name}}</td>
+				<td class="text-left">{{item.price | number}} تومان</td>
+			</tr>
+		</table>
+		<div class="pull-xs-left">
+			<button class="btn btn-sm btn-primary">ادامه خرید</button>
+		</div>
+	</div>
+</div>	

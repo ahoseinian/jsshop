@@ -72,7 +72,18 @@ html {
   left: -20px;
 }
 
-
-.cat-dropdown{
+.cat-dropdown {
   width: 800px;
+}
+
+.pull-xs-left .dropdown {
+  left: 0;
+}
+
+.cart-dropdown {
+  width: 400px;
+}
+
+.text-left {
+  text-align: left;
 }
