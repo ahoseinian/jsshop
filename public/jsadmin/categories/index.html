@@ -1,7 +1,6 @@
-<h1>Categories page</h1>
 <div class="row">
   <div class="col-md-8">
-    <table class="table rtl">
+    <table class="table">
       <tr>
         <th>مادر</th>
         <th>نام</th>
@@ -15,7 +14,7 @@
         <td>
           <span confirm-btn click-func="vm.srv.remove(item)"></span>
           <button class="btn btn-sm btn-info" type="button" ng-click="vm.srv.cur = item">ویرایش</button>
-          <button class="btn btn-secondary btn-sm" type="button" ng-click="vm.parent = item">
+          <button class="btn btn-secondary btn-sm" type="button" ng-click="vm.parent = item" ng-if="!item._parent._parent">
             <span class="fa fa-plus"></span> child
           </button>
         </td>
@@ -43,8 +42,14 @@
         <button type="reset" class="btn btn-secondary" ng-click="vm.child.dtls = []">RESET</button>
       </form>
     </div>
-    <div class="card card-block">
-      <form novalidate name="form" ng-submit="vm.srv.save()" class="rtl">
+    <div class="card">
+      <div class="card-header">
+        <h2>
+          {{vm.srv.cur._id ? 'ویرایش':'جدید'}}
+          <button ng-click="vm.newCat()" class="btn btn-primary btn-sm pull-xs-left">کتگوری جدید</button>
+        </h2>
+      </div>
+      <form novalidate name="form" ng-submit="vm.srv.save()" class=" card-block">
         <fieldset class="form-group">
           <input type="text" ng-model="vm.srv.cur.name" class="form-control" placeholder="نام" required>
         </fieldset>
@@ -58,7 +63,6 @@
           </fieldset>
         </div>
         <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">ذخیره</button>
-        <button type="reset" class="btn btn-secondary" ng-click="vm.srv.parent = {}">RESET</button>
       </form>
     </div>
   </div>

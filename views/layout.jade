@@ -12,19 +12,32 @@ html(ng-app="myApp")
       nav.navbar.navbar-light.bg-faded.m-b-1
         button.navbar-toggler.hidden-sm-up(type="button", data-toggle="collapse", data-target="#exCollapsingNavbar") &#9776;
         #exCollapsingNavbar.collapse.navbar-toggleable-xs
-          a.navbar-brand(ui-sref='home', ui-sref-active="active") فروشگاه
+          a.navbar-brand(ui-sref='app.home', ui-sref-active="active") فروشگاه
           ul.nav.navbar-nav
             each cat in cats
-              li.nav-item
-                a.nav-link(ui-sref='categories({name: \''+cat.name+'\'})', ui-sref-active="active")= cat.name
+              li.nav-item.dropdown
+                a.nav-link.dropdown-toggle(data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")= cat.name
+                .dropdown-menu.cat-dropdown
+                  .row.p-a-1
+                    each child in cat._children
+                      div(class="col-md-#{12 / cat._children.length}")
+                        h3
+                          a(ui-sref="app.categories({name: '#{child.name}'})")= child.name
+
+                        each secondChild in child._children
+                          a(ui-sref="app.categories({name: '#{secondChild.name}'})")= secondChild.name
 
             .pull-xs-left
+              li.nav-item(ui-view="cart")
+                
+
+
               if !user
                 li.nav-item
-                  a.nav-link(ui-sref='auth', ui-sref-active="active") ورود / ثبت نام
+                  a.nav-link(ui-sref='app.auth', ui-sref-active="active") ورود / ثبت نام
               else
                 li.nav-item.dropdown
-                  a.nav-link.dropdown-toggle(data-toggle="dropdown", href="#", role="button", aria-haspopup="true", aria-expanded="false")
+                  a.nav-link.dropdown-toggle(data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
                     = user.fullname
 
                   .dropdown-menu

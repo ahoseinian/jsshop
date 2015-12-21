@@ -10,21 +10,22 @@
   function productSlider(product, $timeout) {
     return {
       templateUrl: '/js/directives/product/slider.html',
+      scope: {
+        items: '='
+      },
       link,
     };
 
     function link(scope, element, attrs) {
-      product.getLatest()
-        .success(function (data) {
-          scope.items = data;
-          $timeout(function () {
-            $($(element)[0].children[0])
-              .slick({
-                slidesToShow: 4,
-                slidesToScroll: 1
-              });
-          })
-        });
+
+      $timeout(function () {
+        $($(element)[0].children[0])
+          .slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            rtl: true,
+          });
+      })
 
 
       scope.quickView = function (itm) {

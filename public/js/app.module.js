@@ -18,7 +18,21 @@
     $urlRouterProvider.otherwise("/home");
 
     $stateProvider
-      .state('home', {
+      .state('app', {
+        abstract: true,
+        views: {
+          cart: {
+            templateUrl: '/js/cart/index.html',
+          },
+
+          '': {
+            templateUrl: '/js/home.html',
+            controller: 'HomeController as vm'
+          },
+
+        }
+      })
+      .state('app.home', {
         url: "/home",
         templateUrl: "/js/home.html",
         controller: 'HomeController',

@@ -17,6 +17,7 @@
 
     vm.addDetail = addDetail;
     vm.saveChild = saveChild;
+    vm.newCat = newCat;
 
     function addDetail() {
       vm.srv.cur.dtls.push({});
@@ -29,6 +30,12 @@
           dtls: [],
         };
       });
+    }
+
+    function newCat() {
+      vm.srv.cur = {
+        dtls: [],
+      };
     }
   }
 })();

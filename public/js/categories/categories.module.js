@@ -10,7 +10,7 @@
 
   function config($stateProvider) {
     $stateProvider
-      .state('categories', {
+      .state('app.categories', {
         url: '/categories/:name',
         templateUrl: '/js/categories/index.html',
         controller: 'CategoriesController',

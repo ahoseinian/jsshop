@@ -8,14 +8,14 @@
 	function config($stateProvider){
 
 		$stateProvider
-			.state('auth', {
+			.state('app.auth', {
 				url: "/auth/:state?",
 				templateUrl: "/js/auth/login.html",
 				controller: 'AuthController',
 				controllerAs: 'vm',
 			})
 
-			.state('auth.signup', {
+			.state('app.auth.signup', {
 				url: "/signup",
 				templateUrl: "/js/auth/signup.html",
 				controller: "SignUpController",
