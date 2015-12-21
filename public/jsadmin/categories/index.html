@@ -1,20 +1,64 @@
 <h1>Categories page</h1>
-<table class="table rtl">
-	<tr ng-repeat="cat in vm.srv.items">
-		<td>{{cat.name}}</td>
-		<td><span confirm-btn click-func="vm.srv.remove(cat)"></span></td>
-	</tr>
-</table>
-
-<button class="btn btn-primary" data-toggle="modal" data-target=".modal"><span class="fa fa-plus"></span>افزودن</button>
-<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content p-a-1">
-      <form novalidate name="form" ng-submit="vm.srv.save()">
-      	<fieldset class="form-group">
-      		<input type="text" ng-model="vm.srv.cur.name" class="form-control" placeholder="نام" required>
-      	</fieldset>	
-      	<button class="btn btn-primary" ng-disabled="form.$invalid">ذخیره</button>
+<div class="row">
+  <div class="col-md-8">
+    <table class="table rtl">
+      <tr>
+        <th>مادر</th>
+        <th>نام</th>
+        <th>اطلاعات محصول</th>
+        <th>Edit</th>
+      </tr>
+      <tr ng-repeat="item in vm.srv.items">
+        <td><span ng-if="item._parent._parent"> > </span> > {{item._parent.name}}</td>
+        <td>{{item.name}}</td>
+        <td><span ng-repeat="dtl in item.dtls"> <{{dtl.name}}> </span></td>
+        <td>
+          <span confirm-btn click-func="vm.srv.remove(item)"></span>
+          <button class="btn btn-sm btn-info" type="button" ng-click="vm.srv.cur = item">ویرایش</button>
+          <button class="btn btn-secondary btn-sm" type="button" ng-click="vm.parent = item">
+            <span class="fa fa-plus"></span> child
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <div class="card card-block bg-info" ng-if="vm.parent.name">
+      <form novalidate name="childForm" ng-submit="vm.saveChild(vm.parent, vm.child)" class="rtl">
+        <h3>زیر مجموعه برای {{vm.parent.name}}</h3>
+        <input type="hidden" ng-model="vm.parent" required>
+        <fieldset class="form-group">
+          <input type="text" ng-model="vm.child.name" class="form-control" placeholder="نام" required>
+        </fieldset>
+        <div class="card-block">
+          <h4>اطلاعات محصول</h4>
+          <fieldset class="form-group">
+            <input type="text" class="form-control" ng-model="dtl.name" ng-repeat="dtl in vm.child.dtls" required>
+            <button type="button" class="btn btn-secodary btn-sm" ng-click="vm.child.dtls.push({})">
+              <span class="fa fa-arrow-up"></span> add detail
+            </button>
+          </fieldset>
+        </div>
+        <button type="submit" class="btn btn-primary" ng-disabled="childForm.$invalid">ذخیره</button>
+        <button type="reset" class="btn btn-secondary" ng-click="vm.child.dtls = []">RESET</button>
+      </form>
+    </div>
+    <div class="card card-block">
+      <form novalidate name="form" ng-submit="vm.srv.save()" class="rtl">
+        <fieldset class="form-group">
+          <input type="text" ng-model="vm.srv.cur.name" class="form-control" placeholder="نام" required>
+        </fieldset>
+        <div class="card-block">
+          <h4>اطلاعات محصول</h4>
+          <fieldset class="form-group">
+            <input type="text" class="form-control" ng-model="dtl.name" ng-repeat="dtl in vm.srv.cur.dtls" required>
+            <button type="button" class="btn btn-secodary btn-sm" ng-click="vm.srv.cur.dtls.push({})">
+              <span class="fa fa-arrow-up"></span> add detail
+            </button>
+          </fieldset>
+        </div>
+        <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">ذخیره</button>
+        <button type="reset" class="btn btn-secondary" ng-click="vm.srv.parent = {}">RESET</button>
       </form>
     </div>
   </div>

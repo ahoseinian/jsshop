@@ -10,6 +10,7 @@
   function CategoriesController($stateParams) {
     var vm = this;
     vm.name = $stateParams.name;
+
   }
 })();
 

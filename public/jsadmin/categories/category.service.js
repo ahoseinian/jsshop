@@ -12,9 +12,12 @@
 
     const ftry = {
       items: [],
-      cur: {},
+      cur: {
+        dtls: []
+      },
       getAll,
       save,
+      saveChild,
       remove,
     }
     return ftry;
@@ -26,10 +29,17 @@
     }
 
     function save() {
+      ftry.cur.dtls = ftry.cur.dtls.filter(hasName);
       return $http.post(BASE_URL, ftry.cur).success(function (res) {
-        ftry.items.push(res);
+        if (!ftry.cur._id) ftry.items.push(res);
         ftry.cur = {};
-        $('.modal').modal('hide');
+      });
+    }
+
+    function saveChild(parentId, child) {
+      child.dtls = child.dtls.filter(hasName);
+      return $http.post(BASE_URL + parentId + '/children', child).success(function (res) {
+        ftry.items.push(res); 
       });
     }
 
@@ -39,6 +49,13 @@
           return itm._id !== cat._id
         });
       })
+    }
+
+
+    //private methods
+
+    function hasName(dtl) {
+      return !!dtl.name;
     }
 
   }
