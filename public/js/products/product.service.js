@@ -11,24 +11,18 @@
   	var BASE_URL = '/api/products/';
 
   	var ftry = {
-  		items: [],
-      current: {},
-  		getAll,
-      getLatest,
+      cur: {},
+      find,
   	};
 
   	return ftry;	
 
-
-    function getAll() {
-      return $http.get(BASE_URL).success(function (res) {
-        angular.copy(res, ftry.items);
+    function find(obj){
+      return $http.get(BASE_URL + obj.name).success(function(res){
+        ftry.current = res;
       });
     }
 
-    function getLatest() {
-      return $http.get(BASE_URL);
-    }
   }
 })();
 

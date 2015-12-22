@@ -22,7 +22,7 @@
             <p>{{vm.pServ.current.price | number}} تومان</p>
             <div class="pull-xs-left">
               <button class="btn btn-sm btn-primary" data-dismiss="modal" ng-click="vm.gotoCurProduct()">مشاهده کالا</button>
-              <button class="btn btn-sm btn-info" data-dismiss="modal" ng-click="vm.cartSrv.addItem(vm.pServ.current)">
+              <button class="btn btn-sm btn-info" data-dismiss="modal" ng-click="vm.cartSrv.add(vm.pServ.current)">
                 <span class="fa fa-shopping-cart"></span>
                 افزودن به سبد خرید
               </button>

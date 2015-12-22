@@ -1,2 +1,19 @@
-<h1>product page</h1>
-<h2>{{vm.product.name}}</h2>
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
+    <img ng-src="/images/products/{{vm.item._id}}.jpg" alt="{{vm.item.name}}" class="product-img">
+  </div>
+  <div class="col-xs-12 col-sm-8">
+    <h1 class="text-xs-center p-a-1">{{vm.item.name}}</h1>
+    <p>{{vm.item.info}}</p>
+    <p>{{vm.item.price | number}} تومان</p>
+    <table class="table">
+      <tr ng-repeat="(key, dtl) in vm.item.dtls">
+        <td class="text-muted">{{key}} :</td>
+        <td>{{dtl}}</td>
+      </tr>
+    </table>
+    <button class="btn btn-sm btn-primary" ng-click="vm.cart.add(vm.item)">
+      <span class="fa fa-shopping-cart"></span> افزودن به سبد خرید
+    </button>
+  </div>
+</div>

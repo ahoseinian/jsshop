@@ -21,8 +21,8 @@
           </select>
         </fieldset>
         <h4 class="text-muted">اطلاعات اضافی</h4>
-        <fieldset class="form-group" ng-repeat="fld in vm.curCat.dtls.texts">
-          <input type="text" class="form-control" ng-model="vm.pServ.current.dtls[fld]" placeholder="{{fld}}">
+        <fieldset class="form-group" ng-repeat="dtl in vm.getCurCat(cats).dtls">
+          <input type="text" class="form-control" ng-model="vm.pServ.current.dtls[dtl.name]" placeholder="{{dtl.name}}">
         </fieldset>
         <button class="btn btn-primary" type="submit" ng-disabled="form.$invalid">ذخیره</button>
       </form>

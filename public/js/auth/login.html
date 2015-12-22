@@ -5,11 +5,11 @@
 			<form method="post" action="/auth/login">
 			
 				<div class="form-group">
-					<input type="text" class="form-control" name="email" placeholder="username">
-					<input type="password" class="form-control" name="password" placeholder="password">
+					<input type="text" class="form-control" name="email" placeholder="پست الکترونیک">
+					<input type="password" class="form-control" name="password" placeholder="رمز عبور">
 				</div>
 				
-				<div class="alert alert-warning">
+				<div class="alert alert-warning" ng-if="vm.state == 'failure'">
 					ایمیل یا رمز ورود اشتباه میباشد
 				</div>
 				<div class="form-group">

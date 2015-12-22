@@ -10,13 +10,13 @@
   function cartService($http) {
     var ftry = {
       items: [],
-      addItem,
+      add,
       getTotal,
       drop,
     };
     return ftry;
 
-    function addItem(itm) {
+    function add(itm) {
       if (hasItem(itm)){
         toastr.warning("کالا در سبد موجود میباشد");
         return false;
