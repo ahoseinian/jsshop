@@ -5,11 +5,11 @@
     .module('app.categories')
     .controller('CategoriesController', CategoriesController);
 
-  CategoriesController.$inject = ['$stateParams'];
+  CategoriesController.$inject = ['categoryPrepService'];
 
-  function CategoriesController($stateParams) {
+  function CategoriesController(categoryPrepService) {
     var vm = this;
-    vm.name = $stateParams.name;
+    vm.category = categoryPrepService.data;
 
   }
 })();

@@ -1,6 +1,13 @@
 html {
   font-size: 14px;
+  word-wrap: break-word;
 }
+
+pre {
+  overflow: visible;
+}
+
+
 
 .form-control {
   padding: .1rem .75rem;
@@ -89,6 +96,6 @@ html {
   text-align: left;
 }
 
-.product-img{
+.product-img {
   width: 100%;
 }

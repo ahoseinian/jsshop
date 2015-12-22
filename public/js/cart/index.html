@@ -1,12 +1,12 @@
 <div class="p-a-1">
   <h3>سبد خرید</h3>
-  <h5 class="text-xs-center text-muted p-a-1" ng-if="!vm.srv.items.length">
+  <h5 class="text-xs-center text-muted p-a-1" ng-if="!vm.srv.query()">
 		کالایی به سبد اضافه نشده است
 		<span class="fa fa-exclamation"></span> 
 	</h5>
-  <div ng-if="vm.srv.items.length">
+  <div ng-if="vm.srv.query()">
     <table class="table table-sm m-t-1">
-      <tr ng-repeat="item in vm.srv.items">
+      <tr ng-repeat="item in vm.srv.query()">
         <td>{{$index+1}}</td>
         <td>{{item.name}}</td>
         <td class="text-left">{{item.price | number}} تومان</td>

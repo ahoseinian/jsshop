@@ -2,12 +2,12 @@
   'use strict';
 
   angular
-    .module('app.cart', [])
+    .module('app.cart', ['ngStorage'])
     .config(config);
 
-  config.$inject = ['$stateProvider'];
+  config.$inject = [];
 
-  function config($stateProvider) {
+  function config() {
+
   }
 })();
-

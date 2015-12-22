@@ -11,11 +11,18 @@
   function config($stateProvider) {
     $stateProvider
       .state('app.categories', {
-        url: '/categories/:name',
+        url: '/categories/:name?',
         templateUrl: '/js/categories/index.html',
-        controller: 'CategoriesController',
-        controllerAs: 'vm',
+        controller: 'CategoriesController as vm',
+        resolve: {
+          categoryPrepService: categoryPrepService
+        }
       })
+  }
+
+  categoryPrepService.$inject = ['categoryService', '$stateParams']
+  function categoryPrepService(categoryService, $stateParams){
+    return categoryService.query({name: $stateParams.name});
   }
 
 })();
