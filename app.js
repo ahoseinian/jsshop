@@ -1,3 +1,4 @@
+var compression = require('compression');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -11,6 +12,8 @@ const MongoStore = require('connect-mongo')(session);
 mongoose.connect('mongodb://localhost/jsshop');
 
 var app = express();
+
+app.use(compression());
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));

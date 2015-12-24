@@ -11,7 +11,8 @@
     return {
       templateUrl: '/js/products/directives/tpl/slider.html',
       scope: {
-        items: '='
+        items: '=',
+        name: '@',
       },
       link,
     };
@@ -19,7 +20,7 @@
     function link(scope, element, attrs) {
 
       $timeout(function () {
-        $($(element)[0].children[0]).slick({
+        element.find('.mcarousel').slick({
           slidesToShow: 4,
           slidesToScroll: 2,
           rtl: true,

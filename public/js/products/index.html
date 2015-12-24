@@ -21,7 +21,8 @@
           <small ng-if="!vm.item.rate"> امتیازی ثبت نشده است </small>
         </div>
       </div>
-      <p class="text-justify">اطلاعات: {{vm.item.info}}</p>
+      <h4 class="text-muted">اطلاعات محصول:</h4>
+      <p class="text-justify p-a-2">{{vm.item.info}}</p>
       <product-details product="vm.item"></product-details>
       <div class="text-left">
         <span class="btn btn-success"><strong>قیمت: </strong>{{vm.item.price | number}} تومان</span>

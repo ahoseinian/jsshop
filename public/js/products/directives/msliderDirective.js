@@ -1,25 +1,31 @@
-(function(){
-	'use strict';
+(function () {
+  'use strict';
 
-	angular
-		.module('app.products')
-		.directive('productMslider', productMslider);
+  angular
+    .module('app.products')
+    .directive('productMslider', productMslider);
 
-  function productMslider() {
+  productMslider.$inject = ['product'];
+  function productMslider(product) {
     return {
       templateUrl: '/js/products/directives/tpl/mslider.html',
       scope: {
         products: '=',
-        title: '@',
+        name: '@',
       },
       link: link,
     };
 
-    function link(scope, el, attrs){
-      el.find('.mslider').mousewheel(function(e, delta) {
+    function link(scope, el, attrs) {
+      el.find('.mslider').mousewheel(function (e, delta) {
         this.scrollLeft -= (delta * 40);
         e.preventDefault();
       });
+      scope.quickView = function (item) {
+        product.current = item;
+        $('.quick-view-modal').modal('show');
+      }
     }
   }
 })();
+

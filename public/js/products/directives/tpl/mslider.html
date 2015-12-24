@@ -1,12 +1,12 @@
 <div class="card">
   <div class="card-header">
-    <h3>{{title}}</h3>
+    <h3>{{name}}</h3>
   </div>
   <div class="mslider">
     <div class="mslider-container">
-      <div class="card" ng-repeat="p in products">
-        <a ui-sref="app.products({name:p.name})">
-          <img ng-src="/images/products/{{p._id}}.jpg">
+      <div class="card pbox" ng-repeat="p in products">
+        <a ui-sref="app.products({name:p.name})" hreflang="fa" media="all" title="{{p.name}}" type="text/html"> 
+          <img ng-src="/images/products/{{p._id}}.jpg" alt="{{p.name}}">
         </a>
         <button class="btn btn-secondary btn-sm quick-view-btn" ng-click="quickView(p)">مشاهده سریع</button>
         <div class="p-a-1">

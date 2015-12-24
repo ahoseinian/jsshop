@@ -1,5 +1,5 @@
 doctype html
-html(ng-app="myApp")
+html(ng-app="myApp", lang="fa")
   head
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1")
@@ -8,7 +8,7 @@ html(ng-app="myApp")
     each file in assets.main.css
       link(rel='stylesheet', href= file)
   body
-    .container
+    .container-fluid
       nav.navbar.navbar-light.bg-faded.m-b-1
         button.navbar-toggler.hidden-sm-up(type="button", data-toggle="collapse", data-target="#exCollapsingNavbar") 
          span.fa.fa-bars
