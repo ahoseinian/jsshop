@@ -1,9 +1,9 @@
 <div class="p-a-1">
   <h3>سبد خرید</h3>
   <h5 class="text-xs-center text-muted p-a-1" ng-if="!vm.srv.query()">
-		کالایی به سبد اضافه نشده است
-		<span class="fa fa-exclamation"></span> 
-	</h5>
+    کالایی به سبد اضافه نشده است
+    <span class="fa fa-exclamation"></span> 
+  </h5>
   <div ng-if="vm.srv.query()">
     <table class="table table-sm m-t-1">
       <tr ng-repeat="item in vm.srv.query()">

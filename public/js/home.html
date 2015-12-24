@@ -9,28 +9,5 @@
       <product-slider class="ltr" items="products"></product-slider>
     </div>
   </div>
-  <div class="modal fade quick-view-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content p-a-1">
-        <div class="row">
-          <div class="col-xs-12 col-sm-4 ">
-            <img ng-src="/images/products/{{vm.pServ.current._id}}.jpg" style="width:100%">
-          </div>
-          <div class="col-xs-12 col-sm-8">
-            <h2>{{vm.pServ.current.name}}</h2>
-            <h4>دسته بندی: {{vm.pServ.current._category.name}}</h4>
-            <p class="text-muted">{{vm.pServ.current.info}}</p>
-            <p>{{vm.pServ.current.price | number}} تومان</p>
-            <div class="pull-xs-left">
-              <button class="btn btn-sm btn-primary" data-dismiss="modal" ng-click="vm.gotoCurProduct()">مشاهده کالا</button>
-              <button class="btn btn-sm btn-info" data-dismiss="modal" ng-click="vm.cartSrv.add(vm.pServ.current)">
-                <span class="fa fa-shopping-cart"></span>
-                افزودن به سبد خرید
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <product-quick-view product="vm.pServ.current"></product-quick-view>
 </ui-view>

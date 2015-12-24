@@ -9,7 +9,7 @@
 
   function productSlider(product, $timeout) {
     return {
-      templateUrl: '/js/directives/product/slider.html',
+      templateUrl: '/js/products/slider.html',
       scope: {
         items: '='
       },

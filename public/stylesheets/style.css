@@ -7,7 +7,19 @@ pre {
   overflow: visible;
 }
 
+.right-dropdown,
+.left-dropdown {
+  position: static;
+}
 
+.right-dropdown .dropdown-menu {
+  right: 0;
+}
+
+.cart-dropdown .dropdown-menu {
+  min-width: 50%;
+  max-width: 100%;
+}
 
 .form-control {
   padding: .1rem .75rem;
@@ -80,16 +92,8 @@ pre {
   z-index: 5;
 }
 
-.cat-dropdown {
-  width: 800px;
-}
-
 .pull-xs-left .dropdown {
   left: 0;
-}
-
-.cart-dropdown {
-  width: 400px;
 }
 
 .text-left {
@@ -98,4 +102,8 @@ pre {
 
 .product-img {
   width: 100%;
+}
+
+.close{
+  font-size: 2.5rem;
 }

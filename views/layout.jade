@@ -15,7 +15,7 @@ html(ng-app="myApp")
           a.navbar-brand(ui-sref='app.home', ui-sref-active="active") فروشگاه
           ul.nav.navbar-nav
             each cat in cats
-              li.nav-item.dropdown
+              li.nav-item.dropdown.right-dropdown
                 a.nav-link.dropdown-toggle(data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")= cat.name
                 .dropdown-menu.cat-dropdown
                   .row.p-a-1
@@ -28,7 +28,7 @@ html(ng-app="myApp")
                           a(ui-sref="app.categories({name: '#{secondChild.name}'})")= secondChild.name
 
             .pull-xs-left
-              li.nav-item.dropdown
+              li.nav-item.dropdown.left-dropdown.cart-dropdown
                 a.nav-link.dropdown-toggle(data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") 
                   span.fa.fa-shopping-cart
                   span سبد خرید
@@ -41,7 +41,7 @@ html(ng-app="myApp")
                 li.nav-item
                   a.nav-link(ui-sref='app.auth', ui-sref-active="active") ورود / ثبت نام
               else
-                li.nav-item.dropdown
+                li.nav-item.dropdown.left-dropdown
                   a.nav-link.dropdown-toggle(data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
                     = user.fullname
 

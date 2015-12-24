@@ -5,21 +5,11 @@
     .module('myApp')
     .controller('HomeController', HomeController);
 
-  HomeController.$inject = ['product', 'cartService', '$state'];
+  HomeController.$inject = ['product'];
 
-  function HomeController(product, cartService, $state) {
+  function HomeController(product) {
     var vm = this;
     vm.pServ = product;
-    vm.cartSrv = cartService;
-    vm.gotoCurProduct = gotoCurProduct;
-
-    function gotoCurProduct() {
-      $('.modal').on('hidden.bs.modal', function (e) {
-        $state.go('app.products', {
-          name: product.current.name
-        });
-      })
-    }
   }
 })();
 

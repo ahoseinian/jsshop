@@ -7,7 +7,7 @@
 
   function productCard() {
     return {
-      templateUrl: '/js/directives/product/card.html',
+      templateUrl: '/jspanel/products/card.html',
       scope: {
         vm: '=',
         product: '=',
