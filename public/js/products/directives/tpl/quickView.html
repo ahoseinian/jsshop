@@ -20,7 +20,7 @@
         <div class="col-xs-12 col-sm-7">
           <p class="text-muted text-justify">{{vm.product.info}}</p>
           <div class="pull-xs-left">
-            <button class="btn btn-sm btn-primary" data-dismiss="modal" ng-click="vm.gotoCurProduct()">مشاهده کالا</button>
+            <button class="btn btn-sm btn-primary" data-dismiss="modal" ui-sref="app.products({name: vm.product.name})">مشاهده کالا</button>
             <button class="btn btn-sm btn-info" data-dismiss="modal" ng-click="vm.cartSrv.add(vm.product)">
               <span class="fa fa-shopping-cart"></span> افزودن به سبد خرید
             </button>

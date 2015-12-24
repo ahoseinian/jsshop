@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.directives')
+    .module('panelApp.directives')
     .directive('productCard', productCard);
 
   function productCard() {

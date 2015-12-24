@@ -10,6 +10,7 @@ var assets = assetmanager.process({
 
 module.exports = function (req, res, next) {
   assets.main.js = assets.main.js.map(removeWebRoots);
+  assets.main.jspublic = assets.main.jspublic.map(removeWebRoots);
   assets.main.css = assets.main.css.map(removeWebRoots);
 
   function removeWebRoots(f) {

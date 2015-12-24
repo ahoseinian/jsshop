@@ -68,18 +68,18 @@ pre {
   color: white;
 }
 
-.slick-slider .card .quick-view-btn {
+.card .quick-view-btn {
   position: absolute;
   width: 80%;
   left: 50%;
   margin-left: -40%;
   text-align: center;
-  bottom: 40px;
+  bottom: 4rem;
   opacity: 0;
   transition: all 0.2s;
 }
 
-.slick-slider .card:hover .quick-view-btn {
+.card:hover .quick-view-btn {
   opacity: 1;
 }
 
@@ -104,6 +104,67 @@ pre {
   width: 100%;
 }
 
-.close{
+.close {
   font-size: 2.5rem;
+}
+
+.navbar-toggler {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.mslider {
+  overflow: auto;
+  overflow-y: hidden;
+  direction: ltr;
+  padding-bottom: 5px;
+}
+.mslider .card-header{
+  direction: rtl;
+}
+
+.mslider-container {
+  width: 67rem;
+  padding: 1rem;
+}
+
+.mslider .card {
+  width: 10rem;
+  display: inline-block;
+  direction: rtl;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  margin: 0 1rem 0 0; 
+}
+.mslider .card:last-of-type{
+  margin-right: 0 !important;
+}
+
+/* Let's get this party started */
+
+.mslider::-webkit-scrollbar {
+  height: 0.35rem;
+}
+
+
+/* Track */
+
+.mslider::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+
+
+/* Handle */
+
+.mslider::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: rgba(255, 0, 0, 0.8);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.mslider::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(255, 0, 0, 0.4);
 }

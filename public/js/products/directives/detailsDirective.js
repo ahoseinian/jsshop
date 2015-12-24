@@ -7,7 +7,7 @@
 
   function productDetails() {
     return {
-      templateUrl: '/js/products/details.html',
+      templateUrl: '/js/products/directives/tpl/details.html',
       scope: {
         product: '=',
       },

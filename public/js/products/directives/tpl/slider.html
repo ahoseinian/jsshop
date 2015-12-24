@@ -1,0 +1,13 @@
+<div class="first-carousel">
+  <div ng-repeat="itm in items">
+    <div class="card m-r-1">
+      <a ui-sref="app.products({name:itm.name})">
+        <img ng-src="/images/products/{{itm._id}}.jpg">
+      </a>
+      <button class="btn btn-secondary btn-sm quick-view-btn" ng-click="quickView(itm)">مشاهده سریع</button>
+      <div class="p-a-1">
+        <h6>{{itm.price | number}} تومان</h6>
+      </div>
+    </div>
+  </div>
+</div>

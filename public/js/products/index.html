@@ -1,10 +1,14 @@
-<div class="card card-block clearfix">
-  <div class="row">
+<div class="card clearfix">
+  <div class="card-header">
+    <h1>{{vm.item.name}}</h1>
+  </div>
+  <div class="row card-block">
     <div class="col-xs-12 col-sm-4">
-      <img ng-src="/images/products/{{vm.item._id}}.jpg" alt="{{vm.item.name}}" class="product-img">
+      <div class="card">
+        <img ng-src="/images/products/{{vm.item._id}}.jpg" alt="{{vm.item.name}}" class="product-img">
+      </div>
     </div>
     <div class="col-xs-12 col-sm-8">
-      <h1 class="text-xs-center p-a-1">{{vm.item.name}}</h1>
       <div class="card pull-xs-left card-block m-r-1 text-xs-center">
         <div>
           <span class="fa fa-star-o" ng-repeat="i in vm.item.rate.emptystars track by $index"></span>

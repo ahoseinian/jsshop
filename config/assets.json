@@ -27,6 +27,7 @@
     },
     "jspublic": {
       "public/build/js/front.min.js": [
+        "bower_components/jquery-mousewheel/jquery.mousewheel.min.js",
         "public/js/**/*.module.js",
         "public/js/**/*.js"
       ]

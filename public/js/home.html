@@ -1,13 +1,19 @@
 <ui-view>
   <div class="row">
     <div class="col-xs-12 col-md-4 ">
-      <img src="/images/products/56767c535954208e78ea4453.jpg" style="width:100%">
+      <div class="card">
+        <img src="/images/products/56767c535954208e78ea4453.jpg" style="width:100%">
+      </div>
     </div>
     <div class="col-md-8 col-xs-12">
       <h2>آخرین کالا ها</h2>
       <product-slider class="ltr" items="products"></product-slider>
       <product-slider class="ltr" items="products"></product-slider>
+
+      <!-- slider -->
+      <product-mslider products="products" title="محبوب ترین کالا ها"></product-mslider>
+      <product-mslider products="products" title="پرفروش ترین ها"></product-mslider>
     </div>
   </div>
-  <product-quick-view product="vm.pServ.current"></product-quick-view>
 </ui-view>
+<product-quick-view product="vm.pServ.current"></product-quick-view>

@@ -5,7 +5,7 @@
 		.module('panelApp', [
 			'ui.router',
 			'app.common',
-			'app.directives', 
+			'panelApp.directives', 
 			'angular-loading-bar',
 			'panelApp.products',
 		])

@@ -2,13 +2,13 @@
 	'use strict';
 
 	angular
-		.module('app.directives')
+		.module('panelApp.directives')
 		.directive('confirmBtn', confirmBtn);
 
 	function confirmBtn() {
 	  var directive = {
 	    link: link,
-	    templateUrl: '/js/directives/confirm/confirm.html',
+	    templateUrl: '/jspanel/directives/confirm/confirm.html',
 	    scope:{
 	    	clickFunc: '&'
 	    },
