@@ -1,0 +1,7 @@
+<div class="ms-container">
+  <ul>
+    <li class="ms-list-item" ng-repeat="(k,slide) in vm.slides | filter:{name: vm.iteration}">
+	      <img ng-src="/images/mainSlider/{{slide.name}}.jpg">
+    </li>
+  </ul>
+</div>

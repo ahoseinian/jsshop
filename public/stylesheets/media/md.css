@@ -1,0 +1,5 @@
+@media (min-width: 992px) {
+	.container-fluid{
+		padding: 0 3rem;
+	}
+}

@@ -8,7 +8,9 @@
       'app.routes.auth',
       'app.categories',
       'app.cart',
+      'app.directives',
       'angular-loading-bar',
+      'ngAnimate',
     ])
     .run(runFunction)
     .config(config);
