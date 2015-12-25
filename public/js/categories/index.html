@@ -1,2 +1,15 @@
 <h1 class="display-4">{{vm.category.name}}</h1>
-<product-slider class="ltr" items="vm.category._products"></product-slider>
+<div class="row">
+  <div class="col-md-2">
+  	<div class="card">
+  		
+  	</div>
+  </div>
+  <div class="col-md-10">
+    <div class="row">
+      <div class="pbox col-xs-12 col-md-2" ng-repeat="p in vm.category._products">
+				<p-sm-box product="p"></p-sm-box>
+      </div>
+    </div>
+  </div>
+</div>

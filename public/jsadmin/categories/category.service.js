@@ -15,12 +15,22 @@
       cur: {
         dtls: []
       },
-      getAll,
-      save,
-      saveChild,
-      remove,
+      find: find,
+      getAll: getAll,
+      save: save,
+      saveChild: saveChild,
+      remove: remove,
+      addValueToDetail: addValueToDetail,
     }
     return ftry;
+
+    function find(params) {
+      return $http.get(BASE_URL, {
+        params: params
+      }).success(function (res) {
+        ftry.cur = res;
+      });
+    }
 
     function getAll() {
       return $http.get(BASE_URL).success(function (res) {
@@ -39,7 +49,7 @@
     function saveChild(parentId, child) {
       child.dtls = child.dtls.filter(hasName);
       return $http.post(BASE_URL + parentId + '/children', child).success(function (res) {
-        ftry.items.push(res); 
+        ftry.items.push(res);
       });
     }
 
@@ -49,6 +59,12 @@
           return itm._id !== cat._id
         });
       })
+    }
+
+    function addValueToDetail(dtl) {
+      return $http.post(BASE_URL + ftry.cur._id + '/details/' + dtl.id, {
+        name: dtl.value
+      });
     }
 
 

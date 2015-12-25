@@ -3,9 +3,14 @@ html {
   word-wrap: break-word;
 }
 
+.container {
+  direction: rtl;
+}
+
 .container-fluid {
   direction: rtl;
   margin-top: 4rem;
+  overflow: hidden;
 }
 
 pre {

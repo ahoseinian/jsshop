@@ -6,8 +6,6 @@
         "bower_components/font-awesome/css/font-awesome.min.css",
         "bower_components/angular-loading-bar/build/loading-bar.min.css",
         "bower_components/toastr/toastr.css",
-        "bower_components/slick-carousel/slick/slick.css",
-        "bower_components/slick-carousel/slick/slick-theme.css",
         "bower_components/bootstrap-v4-rtl/rtl.css",
         "public/stylesheets/**/*.css"
       ]
@@ -21,7 +19,6 @@
         "bower_components/bootstrap/dist/js/bootstrap.min.js",
         "bower_components/angular-loading-bar/build/loading-bar.min.js",
         "bower_components/toastr/toastr.js",
-        "bower_components/slick-carousel/slick/slick.min.js",
         "bower_components/ngstorage/ngStorage.min.js"
       ]
     },

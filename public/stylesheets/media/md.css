@@ -1,5 +1,11 @@
 @media (min-width: 992px) {
-	.container-fluid{
-		padding: 0 3rem;
-	}
+  .container-fluid {
+    padding: 0 3rem;
+  }
+  .right-dropdown .dropdown-menu {
+    right: 3rem;
+  }
+  .pull-xs-left .dropdown {
+    left: 3rem;
+  }
 }

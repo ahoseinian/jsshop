@@ -19,14 +19,22 @@ html(ng-app="myApp", lang="fa")
               li.nav-item.dropdown.right-dropdown
                 a.nav-link.dropdown-toggle(data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")= cat.name
                 .dropdown-menu.cat-dropdown
-                  .row.p-a-1
-                    each child in cat._children
-                      div(class="col-md-#{12 / cat._children.length}")
-                        h3
-                          a(ui-sref="app.categories({name: '#{child.name}'})")= child.name
-
-                        each secondChild in child._children
-                          a(ui-sref="app.categories({name: '#{secondChild.name}'})")= secondChild.name
+                  .card-header
+                    h2 
+                      a(ui-sref="app.categories({name: '#{cat.name}'})")= cat.name
+                  .card-block
+                    .row
+                      each child in cat._children
+                        .col-md-2
+                          .card
+                            .card-header
+                              h3.text-xs-center
+                                a(ui-sref="app.categories({name: '#{child.name}'})")= child.name
+                            
+                            ul.list-group.list-group-flush
+                              each secondChild in child._children
+                                li.list-group-item
+                                  a(ui-sref="app.categories({name: '#{secondChild.name}'})")= secondChild.name
 
             .pull-xs-left
               li.nav-item.dropdown.left-dropdown.cart-dropdown

@@ -10,7 +10,11 @@
       <tr ng-repeat="item in vm.srv.items">
         <td><span ng-if="item._parent._parent"> > </span> > {{item._parent.name}}</td>
         <td>{{item.name}}</td>
-        <td><span ng-repeat="dtl in item.dtls"> <{{dtl.name}}> </span></td>
+        <td>
+          <div ng-repeat="dtl in item.dtls">
+            <a ui-sref="categories.detail({id: item._id})" class="btn btn-sm btn-secondary">{{dtl.name}}</a>
+          </div>
+        </td>
         <td>
           <span confirm-btn click-func="vm.srv.remove(item)"></span>
           <button class="btn btn-sm btn-info" type="button" ng-click="vm.srv.cur = item">ویرایش</button>
@@ -22,48 +26,50 @@
     </table>
   </div>
   <div class="col-md-4">
-    <div class="card card-block bg-info" ng-if="vm.parent.name">
-      <form novalidate name="childForm" ng-submit="vm.saveChild(vm.parent, vm.child)" class="rtl">
-        <h3>زیر مجموعه برای {{vm.parent.name}}</h3>
-        <input type="hidden" ng-model="vm.parent" required>
-        <fieldset class="form-group">
-          <input type="text" ng-model="vm.child.name" class="form-control" placeholder="نام" required>
-        </fieldset>
-        <div class="card-block">
-          <h4>اطلاعات محصول</h4>
+    <ui-view>
+      <div class="card card-block bg-info" ng-if="vm.parent.name">
+        <form novalidate name="childForm" ng-submit="vm.saveChild(vm.parent, vm.child)" class="rtl">
+          <h3>زیر مجموعه برای {{vm.parent.name}}</h3>
+          <input type="hidden" ng-model="vm.parent" required>
           <fieldset class="form-group">
-            <input type="text" class="form-control" ng-model="dtl.name" ng-repeat="dtl in vm.child.dtls" required>
-            <button type="button" class="btn btn-secodary btn-sm" ng-click="vm.child.dtls.push({})">
-              <span class="fa fa-arrow-up"></span> add detail
-            </button>
+            <input type="text" ng-model="vm.child.name" class="form-control" placeholder="نام" required>
           </fieldset>
-        </div>
-        <button type="submit" class="btn btn-primary" ng-disabled="childForm.$invalid">ذخیره</button>
-        <button type="reset" class="btn btn-secondary" ng-click="vm.child.dtls = []">RESET</button>
-      </form>
-    </div>
-    <div class="card">
-      <div class="card-header">
-        <h2>
+          <div class="card-block">
+            <h4>اطلاعات محصول</h4>
+            <fieldset class="form-group">
+              <input type="text" class="form-control" ng-model="dtl.name" ng-repeat="dtl in vm.child.dtls" required>
+              <button type="button" class="btn btn-secodary btn-sm" ng-click="vm.child.dtls.push({})">
+                <span class="fa fa-arrow-up"></span> add detail
+              </button>
+            </fieldset>
+          </div>
+          <button type="submit" class="btn btn-primary" ng-disabled="childForm.$invalid">ذخیره</button>
+          <button type="reset" class="btn btn-secondary" ng-click="vm.child.dtls = []">RESET</button>
+        </form>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h2>
           {{vm.srv.cur._id ? 'ویرایش':'جدید'}}
           <button ng-click="vm.newCat()" class="btn btn-primary btn-sm pull-xs-left">کتگوری جدید</button>
         </h2>
-      </div>
-      <form novalidate name="form" ng-submit="vm.srv.save()" class=" card-block">
-        <fieldset class="form-group">
-          <input type="text" ng-model="vm.srv.cur.name" class="form-control" placeholder="نام" required>
-        </fieldset>
-        <div class="card-block">
-          <h4>اطلاعات محصول</h4>
-          <fieldset class="form-group">
-            <input type="text" class="form-control" ng-model="dtl.name" ng-repeat="dtl in vm.srv.cur.dtls" required>
-            <button type="button" class="btn btn-secodary btn-sm" ng-click="vm.srv.cur.dtls.push({})">
-              <span class="fa fa-arrow-up"></span> add detail
-            </button>
-          </fieldset>
         </div>
-        <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">ذخیره</button>
-      </form>
-    </div>
+        <form novalidate name="form" ng-submit="vm.srv.save()" class=" card-block">
+          <fieldset class="form-group">
+            <input type="text" ng-model="vm.srv.cur.name" class="form-control" placeholder="نام" required>
+          </fieldset>
+          <div class="card-block">
+            <h4>اطلاعات محصول</h4>
+            <fieldset class="form-group">
+              <input type="text" class="form-control" ng-model="dtl.name" ng-repeat="dtl in vm.srv.cur.dtls" required>
+              <button type="button" class="btn btn-secodary btn-sm" ng-click="vm.srv.cur.dtls.push({})">
+                <span class="fa fa-arrow-up"></span> add detail
+              </button>
+            </fieldset>
+          </div>
+          <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">ذخیره</button>
+        </form>
+      </div>
+    </ui-view>
   </div>
 </div>

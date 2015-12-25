@@ -2,4 +2,10 @@
   .container-fluid {
     margin-top: 5rem;
   }
+  .pull-xs-left .dropdown {
+  	left: 0;
+	}
+	.right-dropdown .dropdown-menu {
+	  right: 0;
+	}
 }

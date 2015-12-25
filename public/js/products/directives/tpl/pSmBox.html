@@ -1,0 +1,10 @@
+<div class="card">
+  <a ui-sref="app.products({name:vm.product.name})" hreflang="fa" media="all" title="{{vm.product.name}}" type="text/html">
+    <img ng-src="/images/products/{{vm.product._id}}.jpg" alt="{{vm.product.name}}">
+  </a>
+  <button class="btn btn-secondary btn-sm quick-view-btn" ng-click="vm.quickView(p)">مشاهده سریع</button>
+  <div class="p-a-1">
+    <small>{{vm.product.price | number}}</small>
+    <span> تومان </span>
+  </div>
+</div>

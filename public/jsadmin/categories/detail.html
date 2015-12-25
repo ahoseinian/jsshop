@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-header">
+    <h1 class="text-xs-center">{{vm.item.name}}</h1>
+  </div>
+  <form name="dtlsForm" novalidate ng-submit="vm.addValueToDetail()">
+    <div class="card-block">
+      <fieldset class="form-group">
+        <div class="input-group">
+          <input type="text" class="form-control" ng-model="vm.dtl.value" required>
+          <span class="input-group-btn">
+	        <button type="submit" class="btn btn-primary" ng-disabled="dtlsForm.$invalid">ثبت</button>
+	      	</span>
+        </div>
+      </fieldset>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" ng-repeat="dtl in vm.item.dtls">
+        <label class="c-input c-radio" style="">
+          <input type="radio" ng-model="vm.dtl.id" ng-value="dtl._id" required>
+          <span class="c-indicator"></span> {{dtl.name}}
+        </label>
+        <ul class="list-group p-t-2">
+        	<li class="list-group-item" ng-repeat="val in dtl.values">{{val.name}}</li>
+        </ul>
+      </li>
+    </ul>
+  </form>
+</div>
