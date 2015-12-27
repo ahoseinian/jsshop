@@ -18,7 +18,7 @@
         controllerAs: 'vm',
       })
       .state('categories.detail', {
-        url: '/categories/:id/details',
+        url: '/:id/details',
         templateUrl: '/jsadmin/categories/detail.html',
         controller: 'DetailsController as vm',
         resolve: {

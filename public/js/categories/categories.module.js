@@ -5,7 +5,6 @@
     .module('app.categories', [])
     .config(config);
 
-
   config.$inject = ['$stateProvider'];
 
   function config($stateProvider) {
@@ -21,8 +20,9 @@
   }
 
   categoryPrepService.$inject = ['categoryService', '$stateParams']
-  function categoryPrepService(categoryService, $stateParams){
-    return categoryService.query({name: $stateParams.name});
+
+  function categoryPrepService(categoryService, $stateParams) {
+    return categoryService.cat.$query(null, $stateParams.name);
   }
 
 })();

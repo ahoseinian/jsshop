@@ -56,7 +56,7 @@ pre {
   z-index: 5;
 }
 
-.close {
+.modal .close {
   font-size: 2.5rem;
 }
 

@@ -21,10 +21,6 @@
         this.scrollLeft -= (delta * 40);
         e.preventDefault();
       });
-      scope.quickView = function (item) {
-        product.current = item;
-        $('.quick-view-modal').modal('show');
-      }
     }
   }
 })();

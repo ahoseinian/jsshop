@@ -8,7 +8,7 @@
         <a ui-sref="app.products({name:p.name})" hreflang="fa" media="all" title="{{p.name}}" type="text/html"> 
           <img ng-src="/images/products/{{p._id}}.jpg" alt="{{p.name}}">
         </a>
-        <button class="btn btn-secondary btn-sm quick-view-btn" ng-click="quickView(p)">مشاهده سریع</button>
+        <button class="btn btn-secondary btn-sm quick-view-btn" ng-click="p.$quickView()">مشاهده سریع</button>
         <div class="p-a-1">
           <small>{{p.price | number}}</small>
           <span> تومان </span>

@@ -1,40 +1,65 @@
 (function () {
   'use strict';
-
-  angular
-    .module('admin.categories')
-    .factory('categoryService', categoryService);
-
+  angular.module('admin.categories').factory('categoryService', categoryService);
   categoryService.$inject = ['$http'];
 
   function categoryService($http) {
     const BASE_URL = '/admin/categories/';
 
+    function Cat(data) {
+      if (data) {
+        for (var p in data) {
+          this[p] = data[p];
+        }
+      } else {
+        this.dtls = [];
+      }
+    };
+
+    Cat.prototype.$removeDetailValue = function (detail, value) {
+      var that = this;
+      $http.delete(BASE_URL + this._id + '/details/' + detail._id + '/values/' + value._id).success(function (res) {
+        that.constructor(res);
+      });
+    };
+
+    Cat.prototype.$addValueToDetail = function (detail) {
+      var that = this;
+      $http.post(BASE_URL + this._id + '/details/' + detail._id, {
+        name: detail.value
+      }).success(function (res) {
+        that.constructor(res);
+      });
+    }
+
     const ftry = {
       items: [],
-      cur: {
-        dtls: []
-      },
+      cur: getNew(),
+      getNew: getNew,
       find: find,
       getAll: getAll,
       save: save,
       saveChild: saveChild,
       remove: remove,
-      addValueToDetail: addValueToDetail,
     }
+
     return ftry;
+
+    function getNew(itm) {
+      return new Cat(itm)
+    }
 
     function find(params) {
       return $http.get(BASE_URL, {
         params: params
       }).success(function (res) {
-        ftry.cur = res;
+        ftry.cur = getNew(res);
       });
     }
 
     function getAll() {
       return $http.get(BASE_URL).success(function (res) {
-        angular.copy(res, ftry.items);
+        angular.copy(res.map(getNew), ftry.items);
       })
     }
 
@@ -61,19 +86,10 @@
       })
     }
 
-    function addValueToDetail(dtl) {
-      return $http.post(BASE_URL + ftry.cur._id + '/details/' + dtl.id, {
-        name: dtl.value
-      });
-    }
-
-
     //private methods
-
     function hasName(dtl) {
       return !!dtl.name;
     }
-
   }
 })();
 

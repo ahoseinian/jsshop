@@ -11,14 +11,14 @@
     <div class="col-xs-12 col-sm-8">
       <div class="card pull-xs-left card-block m-r-1 text-xs-center">
         <div>
-          <span class="fa fa-star-o" ng-repeat="i in vm.item.rate.emptystars track by $index"></span>
-          <span class="fa fa-star-half-o" ng-repeat="i in vm.item.rate.halfstars track by $index"></span>
-          <span class="fa fa-star" ng-repeat="i in vm.item.rate.fullstars track by $index"></span>
+          <span class="fa fa-star-o" ng-repeat="i in vm.item.$ratings.emptystars track by $index"></span>
+          <span class="fa fa-star-half-o" ng-repeat="i in vm.item.$ratings.halfstars track by $index"></span>
+          <span class="fa fa-star" ng-repeat="i in vm.item.$ratings.fullstars track by $index"></span>
         </div>
         <small>امتیاز کاربران: </small>
-        <span>{{vm.item.rate.avg | number:1}}</span>
+        <span>{{vm.item.$ratings.avg | number:1}}</span>
         <div>
-          <small ng-if="!vm.item.rate"> امتیازی ثبت نشده است </small>
+          <small ng-if="!vm.item.$ratings"> امتیازی ثبت نشده است </small>
         </div>
       </div>
       <h4 class="text-muted">اطلاعات محصول:</h4>

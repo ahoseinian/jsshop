@@ -5,11 +5,12 @@
     .module('myApp')
     .controller('HomeController', HomeController);
 
-  HomeController.$inject = ['product'];
+  HomeController.$inject = ['$rootScope', 'product'];
 
-  function HomeController(product) {
+  function HomeController($rootScope, product) {
     var vm = this;
     vm.pServ = product;
+    vm.products = $rootScope.products.map(product.getNew);
   }
 })();
 

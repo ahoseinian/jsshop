@@ -5,12 +5,11 @@
     .module('app.categories')
     .controller('CategoriesController', CategoriesController);
 
-  CategoriesController.$inject = ['categoryPrepService'];
+  CategoriesController.$inject = ['categoryService'];
 
-  function CategoriesController(categoryPrepService) {
+  function CategoriesController(categoryService) {
     var vm = this;
-    vm.category = categoryPrepService.data;
-
+    vm.category = categoryService.cat;
   }
 })();
 
