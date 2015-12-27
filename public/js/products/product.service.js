@@ -37,7 +37,8 @@
 
     function find(obj) {
       return $http.get(BASE_URL + obj.name).success(function (res) {
-        ftry.current = new Product(res);
+        ftry.current = new Product(res.data);
+        ftry.current.$similars = res.similars.map(getNew);
       });
     }
 

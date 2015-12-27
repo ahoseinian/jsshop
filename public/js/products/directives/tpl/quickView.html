@@ -12,19 +12,24 @@
           <div class="card">
             <img ng-src="/images/products/{{vm.product._id}}.jpg" style="width:100%">
             <div class="text-xs-center p-a-1">
-              <span class="btn btn-primary btn-block">{{ vm.product.price | number}} تومان</span>
+              <h5 class="btn btn-success btn-block">{{ vm.product.price | number}} تومان</h5>
             </div>
             <product-details product="vm.product"></product-details>
           </div>
         </div>
         <div class="col-xs-12 col-sm-7">
           <p class="text-muted text-justify">{{vm.product.info}}</p>
-          <div class="pull-xs-left">
-            <button class="btn btn-sm btn-primary" data-dismiss="modal" ui-sref="app.products({name: vm.product.name})">مشاهده کالا</button>
-            <button class="btn btn-sm btn-info" data-dismiss="modal" ng-click="vm.cartSrv.add(vm.product)">
-              <span class="fa fa-shopping-cart"></span> افزودن به سبد خرید
-            </button>
+          <div class="clearfix p-b-1">
+            <div class="pull-xs-left">
+              <button class="btn btn-sm btn-primary" data-dismiss="modal" ui-sref="app.products({name: vm.product.name})">مشاهده کالا</button>
+              <button class="btn btn-sm btn-info" data-dismiss="modal" ng-click="vm.cartSrv.add(vm.product)">
+                <span class="fa fa-shopping-cart"></span> افزودن به سبد خرید
+              </button>
+            </div>
           </div>
+        </div>
+        <div class="col-xs-12">
+          <product-mslider name="محصولات مشابه" products="vm.product.$similars"></product-mslider>
         </div>
       </div>
     </div>

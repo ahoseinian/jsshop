@@ -11,9 +11,11 @@ html(ng-app="myApp", lang="fa")
     .container-fluid
       nav.navbar.navbar-light.bg-faded.m-b-1.navbar-fixed-top
         button.navbar-toggler.hidden-sm-up(type="button", data-toggle="collapse", data-target="#exCollapsingNavbar") 
-         span.fa.fa-bars
+         span.fa.fa-bars.text-red-1
         #exCollapsingNavbar.collapse.navbar-toggleable-xs
-          a.navbar-brand(ui-sref='app.home', ui-sref-active="active") فروشگاه
+          a.navbar-brand.text-red-1(ui-sref='app.home', ui-sref-active="active")
+            small فروشگاه اینترنتی 
+            strong میاریم‌!
           ul.nav.navbar-nav
             each cat in cats
               li.nav-item.dropdown.right-dropdown
@@ -42,7 +44,7 @@ html(ng-app="myApp", lang="fa")
                   span.fa.fa-shopping-cart
                   span سبد خرید
 
-                .dropdown-menu.cart-dropdown(ui-view="cart")
+                .dropdown-menu(ui-view="cart")
                  
 
 

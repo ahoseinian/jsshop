@@ -64,3 +64,7 @@ pre {
   font-weight: bold;
   font-size: 2rem;
 }
+
+.text-red-1 {
+  color: #AA0718 !important;
+}
