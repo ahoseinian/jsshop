@@ -44,8 +44,9 @@
   runFunction.$inject = ['$rootScope'];
 
   function runFunction($rootScope) {
-    $rootScope.$on("$stateChangeStart", function () {
-      $('.modal-backdrop').hide();
+    $rootScope.$on("$stateChangeSuccess", function () {
+      // $('.modal-backdrop').hide();
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
     });
   }
 

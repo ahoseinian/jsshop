@@ -1,5 +1,5 @@
 <div class="card pbox">
-  <a ui-sref="app.products({id: product._id, name:product.name})" hreflang="fa" media="all" title="{{product.name}}" type="text/html">
+  <a data-dismiss="modal" ui-sref="app.products({id: product._id, name:product.name})" hreflang="fa" media="all" title="{{product.name}}" type="text/html">
     <img ng-src="/images/products/{{product._id}}.jpg" alt="{{product.name}}" class="full-width">
   </a>
   <button class="btn btn-secondary btn-sm quick-view-btn" ng-click="product.$quickView()">مشاهده سریع</button>

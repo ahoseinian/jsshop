@@ -72,26 +72,44 @@
     <form name="addressForm" novalidate>
       <div class="row">
 
-        <div class="col-md-2">
+        <div class="col-xs-12 col-md-2">
           <fieldset class="form-group">
-            <select class="form-control" ng-options="city.name as city.name for city in cities" ng-model="vm.address.state" required>
+            <select class="form-control" name="state" ng-options="city.name as city.name for city in cities" ng-model="vm.address.state" required>
               <option value="">استان</option>
             </select>
           </fieldset>
 
           <fieldset class="form-group">
-            <input type="text" class="form-control" ng-model="vm.address.postalcode" placeholder="کد پستی" required>
+            <input type="text" class="form-control" name="postalcode" ng-model="vm.address.postalcode" placeholder="کد پستی" required>
           </fieldset>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-xs-12 col-md-6">
           <fieldset class="form-group">
-            <textarea class="form-control" ng-model="vm.address.text" placeholder="نشانی کامل" rows="3" required></textarea>
+            <textarea class="form-control" name="text" ng-model="vm.address.text" placeholder="نشانی کامل" rows="3" required></textarea>
           </fieldset>
         </div>
 
       </div>
     </form>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3 class="text-info">
+			<span class="fa fa-credit-card"></span>
+			<span>روش پرداخت</span>
+		</h3>
+  </div>
+  <div class="card-block">
+    <h5>
+			<label>
+				<input type="radio">
+				<span>بانک ملت</span>	
+				<small class="text-muted">تمامی کارتهای عضو شتاب</small>
+			</label>
+		</h5>
   </div>
 </div>
 
