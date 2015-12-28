@@ -9,20 +9,9 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-8">
-      <div class="card pull-xs-left card-block m-r-1 text-xs-center">
-        <div>
-          <span class="fa fa-star-o" ng-repeat="i in vm.item.$ratings.emptystars track by $index"></span>
-          <span class="fa fa-star-half-o" ng-repeat="i in vm.item.$ratings.halfstars track by $index"></span>
-          <span class="fa fa-star" ng-repeat="i in vm.item.$ratings.fullstars track by $index"></span>
-        </div>
-        <small>امتیاز کاربران: </small>
-        <span>{{vm.item.$ratings.avg | number:1}}</span>
-        <div>
-          <small ng-if="!vm.item.$ratings"> امتیازی ثبت نشده است </small>
-        </div>
-      </div>
+      <product-rating product="vm.item"></product-rating>
       <h4 class="text-muted">اطلاعات محصول:</h4>
-      <p class="text-justify p-a-2">{{vm.item.info}}</p>
+      <p class="text-justify">{{vm.item.info}}</p>
       <product-details product="vm.item"></product-details>
       <div class="text-left">
         <span class="btn btn-success"><strong>قیمت: </strong>{{vm.item.price | number}} تومان</span>

@@ -1,0 +1,12 @@
+<div class="card pull-xs-left card-block m-r-1 text-xs-center">
+  <div>
+    <span class="fa fa-star-o" ng-repeat="i in product.$ratings.emptystars track by $index"></span>
+    <span class="fa fa-star-half-o" ng-repeat="i in product.$ratings.halfstars track by $index"></span>
+    <span class="fa fa-star" ng-repeat="i in product.$ratings.fullstars track by $index"></span>
+  </div>
+  <small>امتیاز کاربران: </small>
+  <span>{{product.$ratings.avg | number:1}}</span>
+  <div>
+    <small ng-if="!product.$ratings"> امتیازی ثبت نشده است </small>
+  </div>
+</div>

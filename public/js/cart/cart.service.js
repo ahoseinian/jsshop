@@ -8,39 +8,63 @@
   cartService.$inject = ['$http', '$localStorage'];
 
   function cartService($http, $localStorage) {
+    function CartItem(data) {
+      $.extend(this, data);
+      this.quantity = 1;
+    }
+
+    CartItem.prototype.$remove = function () {
+      var _this = this;
+      ftry.storage.items = ftry.storage.items.filter(notEqual);
+      ftry.items = ftry.items.filter(notEqual);
+
+      function notEqual(item) {
+        return _this._id !== item._id;
+      }
+    }
+
     var ftry = {
       storage: $localStorage.$default({
         items: []
       }),
-      query,
-      add,
-      getTotal,
-      drop,
+      getNew: getNew,
+      items: $localStorage.items.map(getNew),
+      add: add,
+      getTotal: getTotal,
+      drop: drop,
     };
     return ftry;
 
-
-    function query() {
-      return ftry.storage.items;
+    function getNew(data) {
+      return new CartItem(data);
     }
 
     function add(itm) {
-      if (hasItem(itm)) {
+      //remove unnecessary properties
+      var item = {
+        _id: itm._id,
+        name: itm.name,
+        price: itm.price,
+      };
+
+      if (hasItem(item)) {
         toastr.warning("کالا در سبد موجود میباشد");
         return false;
       }
-      ftry.storage.items.push(itm);
+      ftry.storage.items.push(item);
+      ftry.items.push(getNew(item));
       toastr.success("کالا به سبد افزوده شد");
     }
 
     function getTotal() {
-      return ftry.storage.items.reduce(function (a, b) {
-        return a + b.price;
+      return ftry.items.reduce(function (a, b) {
+        return a + (b.quantity * b.price);
       }, 0)
     }
 
     function drop() {
       ftry.storage.items = [];
+      ftry.items = [];
       toastr.success("سبد خرید خالی شد");
     }
 
@@ -50,7 +74,6 @@
         return one._id == itm._id;
       });
     }
-
 
   }
 })();

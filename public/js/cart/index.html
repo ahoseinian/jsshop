@@ -1,35 +1,131 @@
-<div class="card-header">
-  <small class="text-muted pull-xs-left" ng-show="vm.srv.query().length">{{vm.srv.query().length}} محصول</small>
-  <h3>
-    <span class="fa fa-shopping-cart"></span>
-    <span> سبد خرید </span>
-  </h3>
-</div>
-<div class="card-block">
-
-  <h5 class="text-xs-center text-muted p-a-1" ng-if="!vm.srv.query().length">
-    کالایی به سبد اضافه نشده است
-    <span class="fa fa-exclamation"></span> 
-  </h5>
-  <div ng-if="vm.srv.query().length">
-    <table class="table table-sm m-t-1">
-      <tr ng-repeat="item in vm.srv.query()">
-        <td>{{$index+1}}</td>
-        <td>{{item.name}}</td>
-        <td class="text-left">{{item.price | number}} تومان</td>
-      </tr>
-      <tr>
-        <td class="text-left" colspan="3">{{vm.srv.getTotal()| number}} تومان</td>
-      </tr>
-    </table>
-    <div class="clearfix">
-
-      <div class="pull-xs-left">
-        <button class="btn btn-sm btn-primary">
-          <span class="fa fa-shopping-cart"></span> ادامه خرید
-        </button>
-        <button class="btn btn-secondary btn-sm" ng-click="vm.srv.drop()">پاکسازی سبد</button>
-      </div>
+<div class="card">
+  <div class="card-header">
+    <h1>
+	    <span class="fa fa-shopping-cart"></span>
+	    <span>سبد خرید</span>
+    </h1>
+  </div>
+  <div class="card-block">
+    <h2 ng-if="!vm.srv.items.length" class="p-a-3 text-muted text-xs-center">کالایی به سبد اضافه نشده است!</h2>
+    <div class="table-responsive" ng-if="vm.srv.items.length">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>عکس</th>
+            <th>نام</th>
+            <th>تعداد</th>
+            <th>قیمت واحد</th>
+            <th>قیمت</th>
+            <th>حذف</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="product in vm.srv.items" class="vertical-centered">
+            <td width="50">
+              <h5 class="text-xs-center"><u>{{$index + 1}}</u></h5>
+            </td>
+            <td width="100">
+              <img ng-src="/images/products/{{product._id}}.jpg" class="img-rounded" title="{{product.name}}" width="100">
+            </td>
+            <td>
+              <h2> <small>{{product.name}}</small> </h2>
+            </td>
+            <td width="80">
+              <select class="c-select" ng-model="product.quantity" ng-options="n for n in [] | range:1:10"></select>
+            </td>
+            <td>
+              <strong>{{product.price | number}} تومان</strong>
+            </td>
+            <td>
+              <strong>{{product.quantity * product.price | number}} تومان</strong>
+            </td>
+            <td width="50">
+              <button class="btn btn-link text-danger" ng-click="product.$remove()">
+                <span class="fa fa-times"></span>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="5" class="text-xs-left">
+              <strong>مجموع:</strong>
+            </td>
+            <td colspan="2">
+              <strong>{{vm.srv.getTotal()| number}} تومان</strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3 class="text-info">
+			<span class="fa fa-map-marker"></span>
+			<span>آدرس</span>
+		</h3>
+  </div>
+
+  <div class="card-block">
+    <form name="addressForm" novalidate>
+      <div class="row">
+
+        <div class="col-md-2">
+          <fieldset class="form-group">
+            <select class="form-control" ng-options="city.name as city.name for city in cities" ng-model="vm.address.state" required>
+              <option value="">استان</option>
+            </select>
+          </fieldset>
+
+          <fieldset class="form-group">
+            <input type="text" class="form-control" ng-model="vm.address.postalcode" placeholder="کد پستی" required>
+          </fieldset>
+        </div>
+
+        <div class="col-md-6">
+          <fieldset class="form-group">
+            <textarea class="form-control" ng-model="vm.address.text" placeholder="نشانی کامل" rows="3" required></textarea>
+          </fieldset>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3 class="text-success">
+			<span class="fa fa-check"></span>
+			<span>تایید و ادامه</span>
+		</h3>
+  </div>
+
+  <div class="card-block">
+    <form name="checkForm" ng-submit="" novalidate>
+      <div class="row">
+
+        <div class="col-md-9 text-xs-left">
+          <fieldset class="form-group">
+            <label class="p-x-2 p-t-1">
+              <input type="checkbox" ng-model="vm.finalcheck" required>
+              <span>
+              	شرایط و ظوابط رو قبول دارم
+              </span>
+            </label>
+          </fieldset>
+        </div>
+
+        <div class="col-md-3 text-xs-left">
+          <button class="btn btn-primary btn-lg" ng-disabled="checkForm.$invalid || addressForm.$invalid">
+            <span class="fa fa-check"></span>
+            <span> تایید و رفتن به درگاه بانک پزیرنده </span>
+          </button>
+        </div>
+
+      </div>
+    </form>
   </div>
 </div>

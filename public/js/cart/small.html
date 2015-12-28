@@ -1,0 +1,42 @@
+<div class="card-header">
+  <small class="text-muted pull-xs-left" ng-show="vm.srv.items.length">{{vm.srv.items.length}} محصول</small>
+  <h3>
+    <span class="fa fa-shopping-cart"></span>
+    <span> سبد خرید </span>
+  </h3>
+</div>
+<div class="card-block">
+
+  <h5 class="text-xs-center text-muted p-a-1" ng-if="!vm.srv.items.length">
+    کالایی به سبد اضافه نشده است
+    <span class="fa fa-exclamation"></span> 
+  </h5>
+  <div ng-if="vm.srv.items.length">
+    <table class="table table-sm m-t-1">
+      <tr>
+        <th>#</th>
+        <th>نام</th>
+        <th>تعداد</th>
+        <th>قیمت</th>
+      </tr>
+      <tr ng-repeat="item in vm.srv.items">
+        <td>{{$index+1}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.quantity}}</td>
+        <td class="text-xs-left">{{item.quantity * item.price | number}} تومان</td>
+      </tr>
+      <tr>
+        <td class="text-xs-left" colspan="4">{{vm.srv.getTotal()| number}} تومان</td>
+      </tr>
+    </table>
+    <div class="clearfix">
+
+      <div class="pull-xs-left">
+        <button class="btn btn-sm btn-primary" ui-sref="app.cart">
+          <span class="fa fa-shopping-cart"></span> ادامه خرید
+        </button>
+        <button class="btn btn-secondary btn-sm" ng-click="vm.srv.drop()">پاکسازی سبد</button>
+      </div>
+    </div>
+  </div>
+</div>

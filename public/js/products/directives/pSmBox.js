@@ -8,24 +8,12 @@
   function pSmBox() {
     return {
       templateUrl: '/js/products/directives/tpl/pSmBox.html',
-      scope: true,
       replace:true,
-      bindToController: {
+      scope: {
         product: '=',
       },
-      controller: PSmBoxController,
-      controllerAs: 'vm',
     };
   }
 
-  PSmBoxController.$inject = ['product'];
-
-  function PSmBoxController(product) {
-    var vm = this;
-    vm.quickView = function (item) {
-      product.current = item;
-      $('.quick-view-modal').modal('show');
-    }
-  }
 })();
 

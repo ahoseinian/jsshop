@@ -12,7 +12,7 @@
 
     function Product(data) {
       $.extend(this, data);
-      if (this._comments) this.$ratings = getRatings(this);
+      if (this.comments) this.$ratings = getRatings(this);
     }
 
     Product.prototype.$quickView = function () {

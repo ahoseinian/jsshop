@@ -25,7 +25,7 @@
         abstract: true,
         views: {
           cart: {
-            templateUrl: '/js/cart/index.html',
+            templateUrl: '/js/cart/small.html',
             controller: 'CartController as vm'
           },
 
