@@ -9,6 +9,7 @@
     return {
       templateUrl: '/js/products/directives/tpl/pSmBox.html',
       scope: true,
+      replace:true,
       bindToController: {
         product: '=',
       },

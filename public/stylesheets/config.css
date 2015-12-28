@@ -9,8 +9,11 @@ html {
 
 .container-fluid {
   direction: rtl;
-  margin-top: 4rem;
   overflow: hidden;
+}
+
+.main-view {
+  padding-top: 4rem;
 }
 
 pre {

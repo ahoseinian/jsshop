@@ -29,7 +29,7 @@
             controller: 'CartController as vm'
           },
 
-          '': {
+          main: {
             templateUrl: '/js/home.html',
             controller: 'HomeController as vm'
           },

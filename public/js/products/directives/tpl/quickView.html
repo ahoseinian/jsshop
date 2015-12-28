@@ -21,7 +21,7 @@
           <p class="text-muted text-justify">{{vm.product.info}}</p>
           <div class="clearfix p-b-1">
             <div class="pull-xs-left">
-              <button class="btn btn-sm btn-primary" data-dismiss="modal" ui-sref="app.products({name: vm.product.name})">مشاهده کالا</button>
+              <button class="btn btn-sm btn-primary" data-dismiss="modal" ui-sref="app.products({id: vm.product._id, name: vm.product.name})">مشاهده کالا</button>
               <button class="btn btn-sm btn-info" data-dismiss="modal" ng-click="vm.cartSrv.add(vm.product)">
                 <span class="fa fa-shopping-cart"></span> افزودن به سبد خرید
               </button>

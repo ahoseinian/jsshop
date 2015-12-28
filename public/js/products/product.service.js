@@ -12,7 +12,7 @@
 
     function Product(data) {
       $.extend(this, data);
-      this.$ratings = getRatings(this);
+      if (this._comments) this.$ratings = getRatings(this);
     }
 
     Product.prototype.$quickView = function () {
@@ -35,8 +35,8 @@
       return new Product(data);
     }
 
-    function find(obj) {
-      return $http.get(BASE_URL + obj.name).success(function (res) {
+    function find(product) {
+      return $http.get(BASE_URL + product._id + '/' + product.name).success(function (res) {
         ftry.current = new Product(res.data);
         ftry.current.$similars = res.similars.map(getNew);
       });

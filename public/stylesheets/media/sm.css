@@ -1,6 +1,6 @@
 @media (max-width: 544px) {
-  .container-fluid {
-    margin-top: 5rem;
+  .main-view {
+    padding-top: 5rem;
   }
   .pull-xs-left .dropdown {
   	left: 0;
