@@ -1,0 +1,44 @@
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>عکس</th>
+        <th>نام</th>
+        <th class="text-xs-center">تعداد</th>
+        <th>قیمت واحد</th>
+        <th>قیمت</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="product in products" class="vertical-centered">
+        <td width="50">
+          <h5 class="text-xs-center"><u>{{$index + 1}}</u></h5>
+        </td>
+        <td width="100">
+          <img ng-src="/images/products/{{product._id}}.jpg" class="img-rounded" title="{{product._product.name}}" width="100">
+        </td>
+        <td>
+          <h2> <small>{{product._product.name}}</small> </h2>
+        </td>
+        <td width="80" class="text-xs-center">
+          <strong>{{product.quantity}}</strong>
+        </td>
+        <td>
+          <strong>{{product._product.price | number}} تومان</strong>
+        </td>
+        <td>
+          <strong>{{product.quantity * product._product.price | number}} تومان</strong>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5" class="text-xs-left">
+          <strong>مجموع:</strong>
+        </td>
+        <td colspan="2">
+          <strong>{{ price | number}} تومان</strong>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -9,6 +9,7 @@
       'app.categories',
       'app.cart',
       'app.directives',
+      'app.purchase',
       'angular-loading-bar',
       'ngAnimate',
     ])

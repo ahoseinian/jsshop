@@ -1,0 +1,73 @@
+<h1>
+	<span> سفارشات شما</span>
+</h1>
+
+<div class="card" ng-repeat="purchase in vm.items">
+  <div class="card-header">
+    <h2>
+			<span>سفارش به شماره پیگیری</span>
+			<small>{{purchase._id.substr(purchase._id.length - 8)}}</small>
+		</h2>
+  </div>
+
+  <div class="card-block">
+
+    <div purchase-table products="purchase.products" price="purchase.price"></div>
+
+    <div class="card-group text-success">
+
+      <div class="card card-block">
+        <h3>
+        	<strong class="fa fa-pencil"></strong>
+        	<span>ثبت سفارش</span>
+        </h3>
+      </div>
+      <div class="card card-block">
+        <h3 ng-class="{'text-muted': purchase.status < 2}">
+        	<strong class="fa fa-check"></strong>
+        	<span>سفارش تایید شده</span>
+        </h3>
+      </div>
+      <div class="card card-block">
+        <h3 ng-class="{'text-muted': purchase.status < 3}">
+        	<strong class="fa fa-truck"></strong>
+        	<span>سفارش ارسال شده</span>
+        </h3>
+      </div>
+      <div class="card card-block">
+        <h3 ng-class="{'text-muted': purchase.status < 4}">
+        	<strong class="fa fa-envelope-o"></strong>
+        	<span>رسیده به دست مشتری</span>
+        </h3>
+      </div>
+
+    </div>
+
+    <progress class="progress progress-success progress-striped" value="{{purchase.status}}" max="4"></progress>
+
+    <blockquote class="blockquote blockquote-reverse">
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <em><small>نام گیرنده:</small></em>
+          <span>{{purchase.address.reciever}}</span>
+        </li>
+
+        <li class="list-inline-item m-r-3">
+          <em><small>شماره تماس:</small></em>
+          <a href="tel:{{purchase.address.tel}}"><span>{{purchase.address.tel}}</span></a>
+        </li>
+
+      </ul>
+      <footer class="blockquote-footer">
+        <em>آدرس:</em>
+        <span>{{purchase.address.state}}</span>
+        <address> {{purchase.address.text}} </address>
+        <em>کد پستی:</em>
+        <span>{{purchase.address.postalcode}}</span>
+
+      </footer>
+    </blockquote>
+    
+  </div>
+
+</div>
