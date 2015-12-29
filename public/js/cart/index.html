@@ -1,8 +1,8 @@
 <div class="card">
   <div class="card-header">
     <h1>
-	    <span class="fa fa-shopping-cart"></span>
-	    <span>سبد خرید</span>
+      <span class="fa fa-shopping-cart"></span>
+      <span>سبد خرید</span>
     </h1>
   </div>
   <div class="card-block">
@@ -63,9 +63,9 @@
 <div class="card">
   <div class="card-header">
     <h3 class="text-info">
-			<span class="fa fa-map-marker"></span>
-			<span>آدرس</span>
-		</h3>
+      <span class="fa fa-map-marker"></span>
+      <span>آدرس</span>
+    </h3>
   </div>
 
   <div class="card-block">
@@ -73,20 +73,30 @@
       <div class="row">
 
         <div class="col-xs-12 col-md-2">
-          <fieldset class="form-group">
+          <fieldset class="form-group " ng-class="{'has-danger': addressForm.reciever.$invalid}">
+            <input type="text" class="form-control" name="reciever" ng-model="vm.address.reciever" placeholder="نام دریافت کننده" required ng-maxlength="100">
+          </fieldset>
+
+          <fieldset class="form-group" ng-class="{'has-danger': addressForm.tel.$invalid}">
+            <input type="text" class="form-control" name="tel" ng-model="vm.address.tel" placeholder="تلفن" required ng-maxlength="30">
+          </fieldset>
+        </div>
+
+        <div class="col-xs-12 col-md-2">
+          <fieldset class="form-group" ng-class="{'has-danger': addressForm.state.$invalid}">
             <select class="form-control" name="state" ng-options="city.name as city.name for city in cities" ng-model="vm.address.state" required>
               <option value="">استان</option>
             </select>
           </fieldset>
 
-          <fieldset class="form-group">
-            <input type="text" class="form-control" name="postalcode" ng-model="vm.address.postalcode" placeholder="کد پستی" required>
+          <fieldset class="form-group" ng-class="{'has-danger': addressForm.postalcode.$invalid}">
+            <input type="text" class="form-control" name="postalcode" ng-model="vm.address.postalcode" placeholder="کد پستی" required ng-maxlength="30">
           </fieldset>
         </div>
 
-        <div class="col-xs-12 col-md-6">
+        <div class="col-xs-12 col-md-6" ng-class="{'has-danger': addressForm.text.$invalid}">
           <fieldset class="form-group">
-            <textarea class="form-control" name="text" ng-model="vm.address.text" placeholder="نشانی کامل" rows="3" required></textarea>
+            <textarea class="form-control" name="text" ng-model="vm.address.text" placeholder="نشانی کامل" rows="3" required ng-maxlength="500"></textarea>
           </fieldset>
         </div>
 
@@ -98,46 +108,66 @@
 <div class="card">
   <div class="card-header">
     <h3 class="text-info">
-			<span class="fa fa-credit-card"></span>
-			<span>روش پرداخت</span>
-		</h3>
+      <span class="fa fa-credit-card"></span>
+      <span>روش پرداخت</span>
+    </h3>
   </div>
   <div class="card-block">
-    <h5>
-			<label>
-				<input type="radio">
-				<span>بانک ملت</span>	
-				<small class="text-muted">تمامی کارتهای عضو شتاب</small>
-			</label>
-		</h5>
+    <div class="row">
+      <form novalidate name="paymentForm">
+
+        <div class="col-md-3">
+          <fieldset class="form-group card" ng-class="{'has-danger': paymentForm.bank.$invalid, 'card-info': vm.payment.bank ==='mellat'}">
+            <div class="form-control">
+              <label class="full-width card-block">
+                <input type="radio" name="bank" ng-model="vm.payment.bank" value="mellat" ng-required="!vm.payment.bank">
+                <span>بانک ملت</span>
+                <small class="text-muted">تمامی کارتهای عضو شتاب</small>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="col-md-3">
+          <fieldset class="form-group card" ng-class="{'has-danger': paymentForm.bank.$invalid, 'card-info': vm.payment.bank ==='parsian'}">
+            <div class="form-control">
+              <label class="full-width card-block">
+                <input type="radio" name="bank" ng-model="vm.payment.bank" value="parsian" ng-required="!vm.payment.bank">
+                <span>بانک پارسیان</span>
+                <small class="text-muted">تمامی کارتهای عضو شتاب</small>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+
+      </form>
+    </div>
   </div>
 </div>
 
 <div class="card">
   <div class="card-header">
     <h3 class="text-success">
-			<span class="fa fa-check"></span>
-			<span>تایید و ادامه</span>
-		</h3>
+      <span class="fa fa-check"></span>
+      <span>تایید و ادامه</span>
+    </h3>
   </div>
 
   <div class="card-block">
-    <form name="checkForm" ng-submit="" novalidate>
+    <form name="checkForm" ng-submit="vm.doTransaction()" novalidate>
       <div class="row">
 
         <div class="col-md-9 text-xs-left">
-          <fieldset class="form-group">
+          <fieldset class="form-group" ng-class="{'text-danger': checkForm.finalcheck.$invalid}">
             <label class="p-x-2 p-t-1">
-              <input type="checkbox" ng-model="vm.finalcheck" required>
-              <span>
-              	شرایط و ظوابط رو قبول دارم
-              </span>
+              <input name="finalcheck" type="checkbox" ng-model="vm.finalcheck" ng-required="!vm.finalcheck">
+              <span> شرایط و ظوابط رو قبول دارم </span>
             </label>
           </fieldset>
         </div>
 
         <div class="col-md-3 text-xs-left">
-          <button class="btn btn-primary btn-lg" ng-disabled="checkForm.$invalid || addressForm.$invalid">
+          <button class="btn btn-primary btn-lg" ng-disabled="checkForm.$invalid || addressForm.$invalid || paymentForm.$invalid">
             <span class="fa fa-check"></span>
             <span> تایید و رفتن به درگاه بانک پزیرنده </span>
           </button>

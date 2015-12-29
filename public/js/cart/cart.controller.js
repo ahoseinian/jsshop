@@ -8,8 +8,8 @@
         min = parseInt(min); //Make string input int
         max = parseInt(max);
         for (var i = min; i < max; i++)
-
           input.push(i);
+        
         return input;
       };
     })
@@ -20,6 +20,15 @@
   function CartController(cartService) {
     var vm = this;
     vm.srv = cartService;
+    vm.doTransaction = doTransaction;
+
+    function doTransaction() {
+      var data = {
+        address: vm.address,
+        products: vm.srv.items,
+      };
+      cartService.doTransaction(data);
+    }
   }
 })();
 

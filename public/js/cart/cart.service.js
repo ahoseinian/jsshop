@@ -11,6 +11,7 @@
     function CartItem(data) {
       $.extend(this, data);
       this.quantity = 1;
+      this._product = this._id;
     }
 
     CartItem.prototype.$remove = function () {
@@ -32,6 +33,7 @@
       add: add,
       getTotal: getTotal,
       drop: drop,
+      doTransaction: doTransaction,
     };
     return ftry;
 
@@ -66,6 +68,12 @@
       ftry.storage.items = [];
       ftry.items = [];
       toastr.success("سبد خرید خالی شد");
+    }
+
+    function doTransaction(data) {
+      $http.post('/api/purchases/', data).success(function (res) {
+        console.log(res);
+      });
     }
 
     //private methods

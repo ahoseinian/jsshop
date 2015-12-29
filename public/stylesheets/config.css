@@ -3,6 +3,10 @@ html {
   word-wrap: break-word;
 }
 
+.card {
+  overflow: hidden;
+}
+
 .container {
   direction: rtl;
 }

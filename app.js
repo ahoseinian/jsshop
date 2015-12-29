@@ -24,7 +24,9 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false,
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection
+  })
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -34,39 +36,45 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(bodyParser.json({limit: '1mb'}));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({
+  limit: '1mb'
+}));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
-
 
 app.use(require('./lib'));
 
-
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
+app.use(function (err, req, res, next) {
+  console.error(err.stack);
+  next(err);
+});
+
 // error handlers
 // my error handler
-app.use(function(err, req, res, next){
-  if(err.code == 11000){
+app.use(function (err, req, res, next) {
+  if (err.code == 11000) {
     err.status = 409;
-  }else if(err.name == 'ValidationError'){
+  } else if (err.name == 'ValidationError') {
     err.status = 400;
   }
   next(err);
 });
 
-
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.json(err);
 });
 
-
 module.exports = app;
+

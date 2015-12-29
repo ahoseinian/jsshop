@@ -8,9 +8,8 @@
   .pull-xs-left .dropdown {
     left: 3rem;
   }
-  nav.navbar{
-	  margin-left: -3rem;
-	  margin-right: -3rem;
-	}
-
+  nav.navbar {
+    margin-left: -3rem;
+    margin-right: -3rem;
+  }
 }
