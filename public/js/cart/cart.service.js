@@ -47,6 +47,7 @@
         _id: itm._id,
         name: itm.name,
         price: itm.price,
+        remaining: itm.remaining,
       };
 
       if (hasItem(item)) {

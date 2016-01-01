@@ -11,7 +11,7 @@
     <li class="list-group-item"> دسته بندی: {{product._category.name}} </li>
     <li class="list-group-item"> فروشنده: {{product._user.fullname}} </li>
     <li class="list-group-item"> قیمت: {{product.price | number}} تومان</li>
-    <li class="list-group-item"> تعداد موجود: {{product.quantity | number}}</li>
+    <li class="list-group-item"> تعداد موجود: {{product.remaining | number}}</li>
     <li class="list-group-item" ng-repeat="(key, val) in product.dtls" ng-if="val">{{key}}: {{val}}</li>
   </ul>
   <div class="card-block">
