@@ -11,8 +11,7 @@
 			.state('products',{
 				url: "/products",
 				templateUrl: "/jspanel/products/index.html",
-				controller: 'IndexController',
-				controllerAs: 'vm',
+				controller: 'ProductController as vm',
 			});
 
 	}

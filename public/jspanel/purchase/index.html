@@ -1,0 +1,17 @@
+<h1>Amir</h1>
+<div class="card" ng-repeat="purchase in vm.items">
+  <div ng-include="'/js/purchase/directives/purchaseBlock.html'"></div>
+
+  <div class="card-footer">
+    <div class="card-group">
+
+      <div class="card" ng-repeat="(key, state) in vm.purchaseStates">
+        <button class="btn btn-secondary btn-lg btn-block" ng-click="purchase.$setStatus(key + 1)" ng-class="{'btn-success': purchase.status > key}" ng-disabled="purchase.status !== key">
+          <span class="fa fa-hand-o-left"></span>
+          <span>{{state}}</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

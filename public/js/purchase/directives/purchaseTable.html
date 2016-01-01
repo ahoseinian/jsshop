@@ -11,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="product in products" class="vertical-centered">
+      <tr ng-repeat="product in purchase.products" class="vertical-centered">
         <td width="50">
           <h5 class="text-xs-center"><u>{{$index + 1}}</u></h5>
         </td>
@@ -36,7 +36,7 @@
           <strong>مجموع:</strong>
         </td>
         <td colspan="2">
-          <strong>{{ price | number}} تومان</strong>
+          <strong>{{ purchase.price | number}} تومان</strong>
         </td>
       </tr>
     </tbody>

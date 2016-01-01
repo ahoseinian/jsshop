@@ -8,6 +8,7 @@
 			'panelApp.directives', 
 			'angular-loading-bar',
 			'panelApp.products',
+			'panelApp.purchase',
 		])
 		.config(config);
 

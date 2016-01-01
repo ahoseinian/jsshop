@@ -3,17 +3,16 @@
 
   angular
     .module('panelApp.products')
-    .controller('IndexController', IndexController);
+    .controller('ProductController', ProductController);
 
 
-  IndexController.$inject = ['productService'];
+  ProductController.$inject = ['productService'];
 
-  function IndexController(productService) {
+  function ProductController(productService) {
     var vm = this;
     vm.test = 'test';
     vm.pServ = productService;
     vm.getCurCat = getCurCat;
-
     productService.getAll();
 
     function getCurCat(cats) {
