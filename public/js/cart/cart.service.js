@@ -71,8 +71,9 @@
     }
 
     function doTransaction(data) {
-      $http.post('/api/purchases/', data).success(function (res) {
-        console.log(res);
+      return $http.post('/api/purchases/', data).success(function (res) {
+        //evacuate cart after successful purchase
+        ftry.drop();
       });
     }
 
