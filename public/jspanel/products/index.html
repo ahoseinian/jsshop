@@ -10,6 +10,9 @@
           <input type="number" class="form-control" ng-model="vm.pServ.current.price" placeholder="قیمت" required>
         </fieldset>
         <fieldset class="form-group">
+          <input type="number" class="form-control" ng-model="vm.pServ.current.quantity" placeholder="تعداد موجود" required min="1">
+        </fieldset>
+        <fieldset class="form-group">
           <textarea class="form-control" ng-model="vm.pServ.current.info" placeholder="اطلاعات" required rows="6"></textarea>
         </fieldset>
         <fieldset class="form-group">
