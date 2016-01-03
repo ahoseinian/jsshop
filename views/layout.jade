@@ -81,22 +81,22 @@ html(ng-app="myApp", lang="fa")
 
                   .dropdown-menu
                     a.dropdown-item(href="/auth/logout")
-                      span.fa.fa-sign-out
+                      span.fa.fa-sign-out.fa-fw
                       span.m-r-1 خروج
 
                     .dropdown-divider
                     a.dropdown-item(ui-sref="app.purchases") 
-                      span.fa.fa-credit-card
+                      span.fa.fa-credit-card.fa-fw
                       span.m-r-1 پیگیری سفارشات
 
                     if user.seller
                       a.dropdown-item(href="/panel") 
-                        span.fa.fa-user
+                        span.fa.fa-user.fa-fw
                         span.m-r-1 پنل کاربری
 
                     else if user.admin
                       a.dropdown-item(href="/admin")
-                        span.fa.fa-user
+                        span.fa.fa-user.fa-fw
                         span.m-r-1 پنل ادمین
 
 
