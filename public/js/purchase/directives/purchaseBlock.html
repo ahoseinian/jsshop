@@ -1,12 +1,25 @@
 <div class="card-header">
-  <h2>
-    <span>سفارش به شماره پیگیری</span>
-    <small>{{purchase._id.substr(purchase._id.length - 8)}}</small>
-  </h2>
+  <div class="row">
+
+    <div class="col-xs-10">
+      <h3>
+        <span>سفارش به شماره پیگیری</span>
+        <u class="text-info">{{purchase._id.substr(purchase._id.length - 8)}}</u>
+      </h3>
+    </div>
+
+    <div class="col-xs-2">
+      <h6 class="pull-xs-left text-muted">
+        <span> فروشنده: </span>
+        <span> {{purchase._seller.fullname}} </span>
+      </h6>
+    </div>
+
+  </div>
 </div>
 
 <div class="card-block">
-  
+
   <div ng-include="'/js/purchase/directives/purchaseTable.html'"></div>
 
   <div class="card-group text-success">
@@ -43,22 +56,32 @@
   <blockquote class="blockquote blockquote-reverse">
     <ul class="list-inline">
       <li class="list-inline-item">
-        <em><small>نام گیرنده:</small></em>
-        <span>{{purchase.address.reciever}}</span>
-      </li>
+        <em><small>نام کاربری خریدار:</small></em>
+        <span>{{purchase._user.fullname}}</span>
+      </li> -
+      
+      <li class="list-inline-item">
+        <em><small>پست الکترونیک:</small></em>
+        <span>{{purchase._user.email}}</span>
+      </li> -
 
-      <li class="list-inline-item m-r-3">
+      <li class="list-inline-item">
+        <em><small>نام گیرنده:</small></em>
+        <span>{{purchase._purchasegroup.address.reciever}}</span>
+      </li> -
+
+      <li class="list-inline-item">
         <em><small>شماره تماس:</small></em>
-        <a href="tel:{{purchase.address.tel}}"><span>{{purchase.address.tel}}</span></a>
+        <a href="tel:{{purchase.address.tel}}"><span>{{purchase._purchasegroup.address.tel}}</span></a>
       </li>
 
     </ul>
     <footer class="blockquote-footer">
       <em>آدرس:</em>
-      <span>{{purchase.address.state}}</span>
-      <address> {{purchase.address.text}} </address>
+      <span>{{purchase._purchasegroup.address.state}}</span>
+      <address> {{purchase._purchasegroup.address.text}} </address>
       <em>کد پستی:</em>
-      <span>{{purchase.address.postalcode}}</span>
+      <span>{{purchase._purchasegroup.address.postalcode}}</span>
 
     </footer>
   </blockquote>
