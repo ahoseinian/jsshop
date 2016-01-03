@@ -1,0 +1,43 @@
+.pbox .product-name {
+  position: relative;
+  padding: 0.1rem 0.7rem;
+  height: 2rem;
+  line-height: 2rem;
+  overflow: hidden;
+  white-space: nowrap;
+  box-shadow: 13px 13px 0px 0px #FFFFFF;
+}
+
+.pbox .product-name .fa-ellipsis-h {
+  position: absolute;
+  left: 3px;
+  top: 9px;
+  background: white;
+  box-shadow: 0 0 29px 17px white;
+}
+
+.pbox .product-price {
+  padding: .2rem 0.7rem .3rem;
+  position: relative;
+}
+
+.pbox .product-price::before {
+  content: "";
+  display: block;
+  position: relative;
+  width: 150px;
+  height: 1px;
+  top: -3px;
+  right: 50%;
+  margin-right: -75px;
+  background: #EEE6E6;
+}
+
+
+.pbox a{
+	text-decoration: none;
+}
+
+.pbox a:hover{
+	color: #AA0718 ;
+}

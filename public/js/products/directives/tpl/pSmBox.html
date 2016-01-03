@@ -1,10 +1,12 @@
 <div class="card pbox">
-  <a data-dismiss="modal" ui-sref="app.products({id: product._id, name:product.name})" hreflang="fa" media="all" title="{{product.name}}" type="text/html">
+  <a data-dismiss="modal" ui-sref="app.products({id: product._id, name:product.name})" hreflang="fa" media="all" title="{{product.name}}" type="text/html" class="text-muted">
     <img ng-src="/images/products/150/{{product._id}}.jpg" alt="{{product.name}}" class="full-width">
+	  <h5 class="product-name text-xs-center m-b-0 نام-محصول">
+	  	<small> {{product.name}} </small>
+	  	<span ng-if="product.name.length > 23" class="fa fa-ellipsis-h"></span>
+		</h5>
   </a>
   <button class="btn btn-secondary btn-sm quick-view-btn" ng-click="product.$quickView()">مشاهده سریع</button>
-  <div class="p-a-1">
-    <small>{{product.price | number}}</small>
-    <span> تومان </span>
-  </div>
+  <div product-price product="product"></div>
+
 </div>

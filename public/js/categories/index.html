@@ -1,17 +1,22 @@
 <h1 class="display-4">{{vm.category.name}}</h1>
 <div class="row">
   <div class="col-xs-12 col-sm-4 col-md-2">
-    <div ng-repeat="dtl in vm.category.dtls" ng-if="dtl.values.length">
-      <label> {{dtl.name}} </label>
-      <select class="form-control" ng-options="val.name as val.name for val in dtl.values" ng-model="vm.search['dtls.'+dtl.name]" ng-change="vm.category.$query(vm.search)">
-        <option value="">همه</option>
-      </select>
+    <div class="card card-block card-info">
+
+      <div ng-repeat="dtl in vm.category.dtls" ng-if="dtl.values.length">
+        <label> {{dtl.name}} </label>
+        <select class="form-control" ng-options="val.name as val.name for val in dtl.values" ng-model="vm.search['dtls.'+dtl.name]" ng-change="vm.category.$query(vm.search)">
+          <option value="">همه</option>
+        </select>
+      </div>
     </div>
   </div>
   <div class="col-xs-12 col-sm-8 col-md-10">
-    <div class="row">
-      <div class="pbox col-xs-6 col-md-2" ng-repeat="p in vm.category._products">
-        <p-sm-box product="p"></p-sm-box>
+    <div class="card card-block">
+      <div class="row">
+        <div class="pbox col-xs-6 col-md-2" ng-repeat="p in vm.category._products">
+          <p-sm-box product="p"></p-sm-box>
+        </div>
       </div>
     </div>
   </div>

@@ -1,0 +1,10 @@
+<div class="product-price">
+
+  <div ng-if="product.remaining > 0">
+    <strong>{{product.price | number}}</strong>
+    <span> تومان </span>
+  </div>
+  <div ng-if="product.remaining <= 0">
+    <span class="text-muted">ناموجود</span>
+  </div>
+</div>
