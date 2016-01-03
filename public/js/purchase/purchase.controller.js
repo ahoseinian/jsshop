@@ -9,7 +9,6 @@
 
   function PurchaseController(purchaseService) {
     var vm = this;
-    console.log(purchaseService);
     vm.items = purchaseService.items;
   }
 
