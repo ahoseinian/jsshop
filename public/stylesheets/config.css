@@ -71,3 +71,7 @@ pre {
   font-weight: bold;
   font-size: 2rem;
 }
+
+.inline-block {
+  display: inline-block;
+}

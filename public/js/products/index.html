@@ -13,8 +13,12 @@
       <h4 class="text-muted">اطلاعات محصول:</h4>
       <p class="text-justify">{{vm.item.info}}</p>
       <product-details product="vm.item"></product-details>
-      <div class="text-left">
-        <span class="btn btn-success"><strong>قیمت: </strong>{{vm.item.price | number}} تومان</span>
+      <div class="text-xs-left">
+        <div class="btn btn-success">
+          <span>قیمت:</span>
+          <div class="inline-block" product-price product="vm.item"></div>
+        </div>
+
         <button class="btn btn-primary" ng-click="vm.cart.add(vm.item)">
           <span class="fa fa-shopping-cart"></span> افزودن به سبد خرید
         </button>
@@ -44,7 +48,7 @@
         </li>
       </ul>
       <div class="card-footer">
-        <div class="text-left" ng-if="!user">
+        <div class="text-xs-left" ng-if="!user">
           <span>برای ثبت نظر وارد شوید</span>
           <a ui-sref="app.auth" class="btn btn-primary btn-sm">
             <span> ورود / ثبت نام </span>
@@ -59,7 +63,7 @@
           <fieldset class="form-group">
             <textarea name="text" ng-model="vm.comment.text" placeholder="نظر شما ..." class="form-control" rows="3" ng-minlength="20" ng-maxlength="2000" required></textarea>
           </fieldset>
-          <div class="text-left">
+          <div class="text-xs-left">
             <span class="text-danger" ng-hide="commentForm.$pristine">
               <small ng-show="commentForm.rate.$error.required">امتیاز دهید</small>
             </span>

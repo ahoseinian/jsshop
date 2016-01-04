@@ -12,7 +12,7 @@
           <div class="card">
             <img ng-src="/images/products/400/{{vm.product._id}}.jpg" style="width:100%">
             <div class="text-xs-center p-a-1">
-              <h5 class="btn btn-success btn-block">{{ vm.product.price | number}} تومان</h5>
+              <div class="btn btn-success btn-block" product-price product="vm.product"></div>
             </div>
           </div>
         </div>
