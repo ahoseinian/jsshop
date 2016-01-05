@@ -13,9 +13,9 @@
     var ftry = {
       items: [],
       current: {},
-      getAll,
-      save,
-      remove,
+      getAll: getAll,
+      save: save,
+      remove: remove,
     };
 
     return ftry;
