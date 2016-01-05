@@ -22,7 +22,7 @@
   categoryPrepService.$inject = ['categoryService', '$stateParams']
 
   function categoryPrepService(categoryService, $stateParams) {
-    return categoryService.cat.$query(null, $stateParams.name);
+    return categoryService.item.$query(null, $stateParams.name);
   }
 
 })();

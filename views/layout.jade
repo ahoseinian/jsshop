@@ -23,7 +23,7 @@ html(ng-app="myApp", lang="fa")
     link(rel="icon", type="image/png", sizes="16x16", href="images/icon/favicon-16x16.png")
     link(rel="manifest", href="images/icon/manifest.json")
     
-    title فروشگاه اینترنتی میاریم!
+    title(ng-bind="(title ? title + ' | ':'') + ' میاریم!'")
     each file in assets.main.css
       link(rel='stylesheet', href= file)
   body

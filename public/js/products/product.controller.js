@@ -5,19 +5,19 @@
     .module('app.products')
     .controller('ProductController', ProductController);
 
-  ProductController.$inject = ['product', 'cartService']
+  ProductController.$inject = ['$rootScope', 'product', 'cartService']
 
-  function ProductController(product, cartService) {
+  function ProductController($rootScope, product, cartService) {
     var vm = this;
     vm.item = product.current;
     vm.cart = cartService;
     vm.addComment = addComment;
-
-
+    
+    $rootScope.title = vm.item.name;
 
     function addComment(cm) {
       product.addComment(cm).success(function () {
-      	vm.item.rate = getAverage();
+        vm.item.rate = getAverage();
         vm.comment = null;
       });
     }

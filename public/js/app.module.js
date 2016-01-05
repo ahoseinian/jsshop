@@ -39,6 +39,7 @@
       })
       .state('app.home', {
         url: "/home",
+        controller: 'HomeController as vm',
       })
   };
 
