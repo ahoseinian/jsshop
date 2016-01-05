@@ -14,6 +14,8 @@
     };
   }
 
+  MainSliderController.$inject = ['$interval'];
+
   function MainSliderController($interval) {
     var vm = this;
     vm.slides = [{
@@ -26,7 +28,7 @@
     vm.iteration = 1;
 
     $interval(function () {
-      if (vm.iteration < vm.slides.length ) {
+      if (vm.iteration < vm.slides.length) {
         vm.iteration++;
       } else {
         vm.iteration = 1;
