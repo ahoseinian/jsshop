@@ -1,8 +1,11 @@
 <h1 class="display-4">{{vm.category.name}}</h1>
 <div class="row">
   <div class="col-xs-12 col-sm-4 col-md-2">
-    <div class="card card-block card-info">
+    <div class="card card-block">
+       
+    </div>
 
+    <div class="card card-block">
       <div ng-repeat="dtl in vm.category.dtls" ng-if="dtl.values.length">
         <label> {{dtl.name}} </label>
         <select class="form-control" ng-options="val.name as val.name for val in dtl.values" ng-model="vm.search['dtls.'+dtl.name]" ng-change="vm.category.$query(vm.search)">
