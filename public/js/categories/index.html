@@ -1,24 +1,50 @@
-<h1 class="display-4">{{vm.category.name}}</h1>
+<h1 class="display-4 p-a-2">{{vm.category.data.name}}</h1>
 <div class="row">
   <div class="col-xs-12 col-sm-4 col-md-2">
-    <div class="card card-block">
-       
+    <div class="card">
+      <div class="card-header">
+        <h5> بر اسال قیمت </h5>
+      </div>
+      <div class="card-block">
+
+        <ul class="p-a-1">
+          <li ng-repeat="range in vm.category.priceRanges" class="text-sans-serif">
+            <small>از</small>
+            <small> {{range.from | number }} </small>
+            <small> تا </small>
+            <small>{{range.to | number }}</small>
+            <small>تومان</small>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <div class="card card-block">
-      <div ng-repeat="dtl in vm.category.dtls" ng-if="dtl.values.length">
-        <label> {{dtl.name}} </label>
-        <select class="form-control" ng-options="val.name as val.name for val in dtl.values" ng-model="vm.search['dtls.'+dtl.name]" ng-change="vm.category.$query(vm.search)">
-          <option value="">همه</option>
-        </select>
+    <div class="card">
+      <div class="card-header">
+        <h5> بر اساس جزییات </h5>
+      </div>
+      <div class="card-block">
+
+        <div ng-repeat="dtl in vm.category.data.dtls" ng-if="dtl.values.length">
+          <label> {{dtl.name}} </label>
+          <select class="form-control" ng-options="val.name as val.name for val in dtl.values" ng-model="vm.search['dtls.'+dtl.name]" ng-change="vm.category.$query(vm.search)">
+            <option value="">همه</option>
+          </select>
+        </div>
       </div>
     </div>
   </div>
   <div class="col-xs-12 col-sm-8 col-md-10">
-    <div class="card card-block">
-      <div class="row">
-        <div class="pbox col-xs-6 col-md-2" ng-repeat="p in vm.category._products">
-          <p-sm-box product="p"></p-sm-box>
+    <div class="card">
+      <div class="card-header">
+        <h4>محصولات</h4>
+      </div>
+      <div class="card-block">
+
+        <div class="row">
+          <div class="pbox col-xs-6 col-md-2" ng-repeat="p in vm.category.data._products">
+            <p-sm-box product="p"></p-sm-box>
+          </div>
         </div>
       </div>
     </div>

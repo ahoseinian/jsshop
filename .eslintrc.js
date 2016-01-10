@@ -22,6 +22,10 @@ module.exports = {
     'browser': true,
     'node': true
   },
+  'globals': {
+    'angular': true,
+    '$': true
+  },
   'extends': 'eslint:recommended'
 };
 

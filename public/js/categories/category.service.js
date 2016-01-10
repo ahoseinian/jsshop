@@ -26,10 +26,10 @@
         _this.constructor(res);
         ftry.item = _this;
       });
-    }
+    };
 
     var ftry = {
-      item: Category(),
+      item: Category()
     };
 
     return ftry;
