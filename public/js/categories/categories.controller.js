@@ -11,6 +11,13 @@
     var vm = this;
     vm.category = categoryService.item;
     $rootScope.title = vm.category.name;
+
+    var currentSearch = {};
+    vm.search = function (data) {
+      $.extend(currentSearch, data);
+      vm.category.$query(currentSearch);
+    };
+
   }
 })();
 

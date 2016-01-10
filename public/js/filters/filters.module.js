@@ -1,0 +1,18 @@
+(function () {
+  'use strict';
+
+  angular
+    .module('app.filters', [])
+    .filter('nFormatter', function () {
+      return function (num) {
+        if (num >= 1000000) {
+          return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+        }
+        if (num >= 1000) {
+          return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+        }
+        return num;
+      };
+    });
+})();
+

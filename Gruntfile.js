@@ -32,7 +32,7 @@ module.exports = function (grunt) {
           compress: true
         },
         files: '<%= assets.admin.js %>'
-      },
+      }
     },
     cssmin: {
       main: {
@@ -43,10 +43,10 @@ module.exports = function (grunt) {
       css: {
         files: ['public/**/*.js', 'public/**/*.css', 'public/**/*.html', 'views/**/*.jade'],
         options: {
-          livereload: true,
-        },
-      },
-    },
+          livereload: true
+        }
+      }
+    }
   });
 
   //Load NPM tasks

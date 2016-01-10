@@ -20,9 +20,8 @@
 
     Category.prototype.$query = function query(params, categoryName) {
       var _this = this;
-      return $http.get(BASE_URL + (categoryName || this.name), {
-        params: params
-      }).success(function (res) {
+      params = params ? '?' + $.param(params): '';
+      return $http.get(BASE_URL + (categoryName || _this.data.name) + params).success(function (res) {
         _this.constructor(res);
         ftry.item = _this;
       });
