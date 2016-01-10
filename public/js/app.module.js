@@ -14,7 +14,6 @@
       'angular-loading-bar',
       'ngAnimate'
     ])
-    .run(runFunction)
     .config(config);
 
   config.$inject = ['$stateProvider', '$urlRouterProvider'];
@@ -43,14 +42,6 @@
         controller: 'HomeController as vm',
         templateUrl: '/js/home.html'
       });
-  }
-
-  runFunction.$inject = ['$rootScope'];
-
-  function runFunction($rootScope) {
-    $rootScope.$on('$stateChangeSuccess', function () {
-      document.body.scrollTop = document.documentElement.scrollTop = 0;
-    });
   }
 
 })();

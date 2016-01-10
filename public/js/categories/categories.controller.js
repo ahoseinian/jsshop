@@ -5,17 +5,21 @@
     .module('app.categories')
     .controller('CategoriesController', CategoriesController);
 
-  CategoriesController.$inject = ['$rootScope', 'categoryService'];
+  CategoriesController.$inject = ['$rootScope', 'categoryService', '$state', '$stateParams'];
 
-  function CategoriesController($rootScope, categoryService) {
+  function CategoriesController($rootScope, categoryService, $state, $stateParams) {
     var vm = this;
     vm.category = categoryService.item;
     $rootScope.title = vm.category.name;
 
-    var currentSearch = {};
+    if (typeof $stateParams.dtls === 'string') {
+      vm.dtlSearch = $.deparam($stateParams.dtls, true);
+    }
+
     vm.search = function (data) {
-      $.extend(currentSearch, data);
-      vm.category.$query(currentSearch);
+      $state.go('app.categories', {
+        dtls: data
+      });
     };
 
   }

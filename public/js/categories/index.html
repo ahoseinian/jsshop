@@ -9,10 +9,14 @@
       <div class="card-block">
 
         <div ng-repeat="dtl in vm.category.data.dtls" ng-if="dtl.values.length">
-          <label> {{dtl.name}} </label>
-          <select class="form-control" ng-options="val.name as val.name for val in dtl.values" ng-model="vm.dtlSearch['dtls.'+dtl.name]" ng-change="vm.search(vm.dtlSearch)">
-            <option value="">همه</option>
-          </select>
+          <hr ng-if="$index !== 0">
+          <h6> {{dtl.name}} </h6>
+          <div ng-repeat="val in dtl.values">
+            <label>
+              <input type="checkbox" ng-model="vm.dtlSearch[dtl.name][val.name]" ng-change="vm.search(vm.dtlSearch)">
+              <span>{{val.name}}</span>
+            </label>
+          </div>
         </div>
       </div>
     </div>
@@ -24,18 +28,24 @@
       <div class="card-block">
 
         <ul class="p-a-1 no-style">
+          <li>
+            <a class="btn btn-link" ui-sref="app.categories({priceFrom: range.from, priceTo: range.to})">
+              <span>همه</span>
+            </a>
+          </li>
           <li ng-repeat="range in vm.category.priceRanges" class="text-sans-serif">
-            <button class="btn btn-link" ng-click="vm.search({price:{$gt: range.from, $lte: range.to}})">
+            <!-- <a class="btn btn-link" ng-click="vm.search({price:{$gt: range.from, $lte: range.to}})"> -->
+            <a class="btn btn-link" ui-sref="app.categories({priceFrom: range.from, priceTo: range.to})">
               <strong><small>( {{range.count}} )</small></strong>
               <small> {{range.from | nFormatter }} </small>
               <small> تا </small>
               <small>{{range.to | nFormatter }}</small>
-            </button>
+            </a>
           </li>
         </ul>
       </div>
     </div>
-    
+
   </div>
   <div class="col-xs-12 col-sm-8 col-md-10">
     <div class="card">
