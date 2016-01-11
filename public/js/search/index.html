@@ -1,0 +1,26 @@
+<div class="search-container">
+  <div class="input-group">
+    <span class="input-group-addon">
+	  <span class="fa fa-search"></span>
+    </span>
+    <input type="text" class="form-control" ng-model="vm.query" ng-change="vm.search(vm.query)">
+  </div>
+  <div class="query-box-container" ng-show="vm.searching">
+    <div class="query-box">
+      <p class="text-muted p-r-1 m-b-0" ng-show="vm.query">
+        <small> جستجوی : </small>
+        <small> {{vm.query}} </small>
+        <small> ... </small>
+      </p>
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" ng-repeat="product in vm.products" ng-click="vm.choose(product.name)">
+          <a class="display-block" ui-sref="app.products({id: product._id, name: product.name})">
+            <span>{{product.name}}</span>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>

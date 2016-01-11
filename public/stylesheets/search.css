@@ -1,0 +1,12 @@
+.query-box-container {
+  position: relative;
+}
+
+.query-box-container .query-box {
+	position: absolute;
+	background: white;
+	width: 100%;
+  border: 1px solid #e5e5e5;
+  top:0;
+  z-index: 2000;
+}

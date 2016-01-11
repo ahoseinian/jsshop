@@ -25,7 +25,8 @@
       current: new Product(),
       find: find,
       addComment: addComment,
-      getNew: getNew
+      getNew: getNew,
+      search: search
     };
 
     return ftry;
@@ -46,6 +47,14 @@
         ftry.current.comments.push(res);
         toastr.success('نظر شما با موفقیت ثبت شد');
         return res;
+      });
+    }
+
+    function search(query) {
+      return $http.get(BASE_URL + 'search', {
+        params: {
+          query: query
+        }
       });
     }
 

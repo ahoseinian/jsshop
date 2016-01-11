@@ -11,6 +11,7 @@
       'app.directives',
       'app.purchase',
       'app.filters',
+      'app.search',
       'angular-loading-bar',
       'ngAnimate'
     ])
@@ -33,6 +34,11 @@
           main: {
             templateUrl: '/js/index.html',
             controller: 'HomeController as vm'
+          },
+
+          search: {
+            templateUrl: '/js/search/index.html',
+            controller: 'SearchController as vm'
           }
 
         }

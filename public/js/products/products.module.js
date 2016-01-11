@@ -10,7 +10,7 @@
   function config($stateProvider) {
     $stateProvider
       .state('app.products', {
-        url: '/products/:id/:name?',
+        url: '/products/:id/:name',
         templateUrl: '/js/products/index.html',
         controller: 'ProductController as vm',
         resolve: {
@@ -24,7 +24,7 @@
   function productPrepService(product, $stateParams) {
     return product.find({
       _id: $stateParams.id,
-      name: $stateParams.name,
+      name: $stateParams.name
     });
   }
 })();
