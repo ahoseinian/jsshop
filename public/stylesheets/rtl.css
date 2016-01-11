@@ -1,0 +1,108 @@
+@font-face {
+  font-family: yekan-web;
+  src: url(fonts/YekanWeb-Regular.woff);
+}
+
+body,
+pre {
+  font-family: yekan-web, tahoma;
+}
+
+.nav-tabs .nav-item,
+.navbar-brand,
+.navbar-nav .nav-item,
+[class^="col-"] {
+  float: right;
+}
+
+@media (min-width: 544px) {
+  .card-group .card {
+    border-radius: 0;
+  }
+  .card-group .card:first-child {
+    border-left: 0;
+  }
+  .card-group .card:last-child {
+    border-left: solid 1px #e5e5e5;
+  }
+}
+
+@media (min-width: 768px) {
+  .col-md-1,
+  .col-md-2,
+  .col-md-3,
+  .col-md-4,
+  .col-md-5,
+  .col-md-6,
+  .col-md-7,
+  .col-md-8,
+  .col-md-9,
+  .col-md-10,
+  .col-md-11,
+  .col-md-12 {
+    float: right;
+  }
+}
+
+.navbar-nav .nav-item:first-of-type,
+.navbar-brand {
+  margin-left: 1rem;
+}
+
+.navbar-brand {
+  margin-right: 0;
+}
+
+.list-group,
+.nav-tabs {
+  padding-right: 0;
+}
+
+th {
+  text-align: right
+}
+
+.dropdown-menu {
+  text-align: right;
+  left: inherit;
+}
+
+.c-indicator {
+  top: 0.6rem;
+  right: 0;
+}
+
+.c-input {
+  padding: 0 1.5rem 0 0;
+}
+
+.input-group-addon:first-child {
+  border-left: 0;
+  border-right: 1px solid #ccc;
+}
+
+.input-group .form-control:first-child,
+.input-group-addon:first-child,
+.input-group-btn:first-child > .btn,
+.input-group-btn:first-child > .btn-group > .btn,
+.input-group-btn:first-child > .dropdown-toggle,
+.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.input-group .form-control:last-child,
+.input-group-addon:last-child,
+.input-group-btn:last-child > .btn,
+.input-group-btn:last-child > .btn-group > .btn,
+.input-group-btn:last-child > .dropdown-toggle,
+.input-group-btn:first-child > .btn:not(:first-child),
+.input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
