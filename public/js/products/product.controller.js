@@ -5,7 +5,7 @@
     .module('app.products')
     .controller('ProductController', ProductController);
 
-  ProductController.$inject = ['$rootScope', 'product', 'cartService']
+  ProductController.$inject = ['$rootScope', 'product', 'cartService'];
 
   function ProductController($rootScope, product, cartService) {
     var vm = this;
@@ -17,7 +17,6 @@
 
     function addComment(cm) {
       product.addComment(cm).success(function () {
-        vm.item.rate = getAverage();
         vm.comment = null;
       });
     }
