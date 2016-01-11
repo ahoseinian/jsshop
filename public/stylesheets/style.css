@@ -12,15 +12,6 @@
   position: static;
 }
 
-.right-dropdown .dropdown-menu {
-  right: 2rem;
-}
-
-.cat-dropdown {
-  min-width: 80%;
-  padding: 0;
-}
-
 .cart-dropdown .dropdown-menu {
   min-width: 50%;
   max-width: 100%;

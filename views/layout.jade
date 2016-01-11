@@ -29,43 +29,42 @@ html(ng-app="myApp", lang="fa")
   body
     .container-fluid
       nav.navbar.navbar-light.bg-faded.m-b-1
-        .row
-          .col-xs-12.col-md-2
-            a.navbar-brand.text-red-1(ui-sref='app.home', ui-sref-active="active")
-              small فروشگاه اینترنتی 
-              strong میاریم‌!
-
-          .col-xs-12.col-md-8(ui-view="search")
             
 
         button.navbar-toggler.hidden-sm-up(type="button", data-toggle="collapse", data-target="#exCollapsingNavbar") 
          span.fa.fa-bars.text-red-1
         #exCollapsingNavbar.collapse.navbar-toggleable-xs
+          .row
+            .col-xs-12.col-md-2
+              a.navbar-brand.text-red-1(ui-sref='app.home', ui-sref-active="active")
+                small فروشگاه اینترنتی 
+                strong میاریم‌!
+
+            .col-xs-12.col-md-8(ui-view="search")
           ul.nav.navbar-nav
             each cat in cats
               li.nav-item.dropdown.right-dropdown
                 a.nav-link.dropdown-toggle(data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")= cat.name
                 .dropdown-menu.cat-dropdown
                   .card-header
-                    h2 
+                    h2
                       a(ui-sref="app.categories({name: '#{cat.name}'})")
                         small
                           span.fa.fa-codiepie
                         span.p-r-1= cat.name
                   .card-block
-                    .row
+                    ul.nav.nav-tabs
                       each child in cat._children
-                        .col-md-2
-                          .card
-                            .card-header
-                              h3.text-xs-center
-                                a(ui-sref="app.categories({name: '#{child.name}'})")
-                                  small= child.name
-                            
-                            ul.list-group.list-group-flush
-                              each secondChild in child._children
-                                li.list-group-item
-                                  a(ui-sref="app.categories({name: '#{secondChild.name}'})")= secondChild.name
+                        li.nav-item.show-child
+                          a.nav-link(ui-sref="app.categories({name: '#{child.name}'})")
+                            h5.m-b-0= child.name
+                          .cat-child-container.clearfix
+                            .row
+                              .col-xs-12.col-md-3
+                                ul.list-group.list-group-flush
+                                  each secondChild in child._children
+                                    li.list-group-item
+                                      a(ui-sref="app.categories({name: '#{secondChild.name}'})")= secondChild.name
 
             .pull-xs-left
               li.nav-item.dropdown.left-dropdown.cart-dropdown
