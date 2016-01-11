@@ -12,9 +12,10 @@
           <hr ng-if="$index !== 0">
           <h6> {{dtl.name}} </h6>
           <div ng-repeat="val in dtl.values">
-            <label>
+            <label class="c-input c-checkbox">
               <input type="checkbox" ng-model="vm.dtlSearch[dtl.name][val.name]" ng-change="vm.search(vm.dtlSearch)">
-              <span>{{val.name}}</span>
+              <span class="c-indicator"></span>
+              <small>{{val.name}}</small>
             </label>
           </div>
         </div>
@@ -27,15 +28,15 @@
       </div>
       <div class="card-block">
 
-        <ul class="p-a-1 no-style">
+        <ul class="p-a-0 no-style">
           <li>
-            <a class="btn btn-link" ui-sref="app.categories({priceFrom: range.from, priceTo: range.to})">
+            <a ui-sref="app.categories({priceFrom: range.from, priceTo: range.to})">
               <span>همه</span>
             </a>
           </li>
           <li ng-repeat="range in vm.category.priceRanges" class="text-sans-serif">
             <!-- <a class="btn btn-link" ng-click="vm.search({price:{$gt: range.from, $lte: range.to}})"> -->
-            <a class="btn btn-link" ui-sref="app.categories({priceFrom: range.from, priceTo: range.to})">
+            <a ui-sref="app.categories({priceFrom: range.from, priceTo: range.to})">
               <strong><small>( {{range.count}} )</small></strong>
               <small> {{range.from | nFormatter }} </small>
               <small> تا </small>

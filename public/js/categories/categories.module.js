@@ -29,24 +29,25 @@
   categoryPrepService.$inject = ['categoryService', '$stateParams'];
 
   function categoryPrepService(categoryService, $stateParams) {
-    var dtls = {};
-    if ($stateParams.dtls && typeof $stateParams.dtls === 'string') {
-      var details = $.deparam($stateParams.dtls, true);
-      $.each(details, function (k, v) {
-        $.each(v, function (key, value) {
-          dtls[k] = {};
-          if (!value) delete v[key];
-          dtls[k]['$in'] = Object.keys(v);
-        });
-      });
-    }
+    if (typeof $stateParams.dtls === 'object') return true;
+
     var query = {
       price: {
         $gt: $stateParams.priceFrom,
         $lte: $stateParams.priceTo
-      },
-      dtls: dtls
+      }
     };
+
+    if ($stateParams.dtls && typeof $stateParams.dtls === 'string') {
+      var details = $.deparam($stateParams.dtls, true);
+      $.each(details, function (k, v) {
+        $.each(v, function (key, value) {
+          if (!value) delete v[key];
+          query['dtls.' + k] = {};
+          query['dtls.' + k].$in = Object.keys(v);
+        });
+      });
+    }
     return categoryService.item.$query(query, $stateParams.name);
   }
 
