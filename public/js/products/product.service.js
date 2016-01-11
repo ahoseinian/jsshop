@@ -16,17 +16,16 @@
     }
 
     Product.prototype.$quickView = function () {
-      var that = this;
-      find(this).success(function (res) {
+      find(this).success(function () {
         $('.modal').modal('show');
-      })
-    }
+      });
+    };
 
     var ftry = {
       current: new Product(),
       find: find,
       addComment: addComment,
-      getNew: getNew,
+      getNew: getNew
     };
 
     return ftry;
@@ -45,7 +44,7 @@
     function addComment(cm) {
       return $http.post(BASE_URL + ftry.current._id + '/comments', cm).success(function (res) {
         ftry.current.comments.push(res);
-        toastr.success("نظر شما با موفقیت ثبت شد");
+        toastr.success('نظر شما با موفقیت ثبت شد');
         return res;
       });
     }
@@ -57,14 +56,14 @@
         return false;
       }
       var avg = product.comments.reduce(function (a, b) {
-        return a + b.rate
+        return a + b.rate;
       }, 0) / product.comments.length;
       return {
         avg: avg,
         fullstars: new Array(parseInt(avg / 2)),
         halfstars: new Array(avg % 2 === 0 ? 0 : 1),
-        emptystars: new Array(parseInt((10 - avg) / 2)),
-      }
+        emptystars: new Array(parseInt((10 - avg) / 2))
+      };
     }
 
   }

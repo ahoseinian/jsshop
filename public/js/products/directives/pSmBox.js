@@ -8,10 +8,10 @@
   function pSmBox() {
     return {
       templateUrl: '/js/products/directives/tpl/pSmBox.html',
-      replace:true,
+      replace: true,
       scope: {
-        product: '=',
-      },
+        product: '='
+      }
     };
   }
 
