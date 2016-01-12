@@ -10,7 +10,7 @@
   function CategoriesController($rootScope, categoryService, $state, $stateParams) {
     var vm = this;
     vm.category = categoryService.item;
-    $rootScope.title = vm.category.name;
+    $rootScope.title = vm.category.data.name;
 
     if (typeof $stateParams.dtls === 'string') {
       vm.dtlSearch = $.deparam($stateParams.dtls, true);
