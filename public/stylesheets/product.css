@@ -6,6 +6,7 @@
   overflow: hidden;
   white-space: nowrap;
   box-shadow: 13px 13px 0px 0px #FFFFFF;
+  background: white;
 }
 
 .pbox .product-name .fa-ellipsis-h {
@@ -59,15 +60,27 @@
 
 .pbox .quick-view-btn {
   position: absolute;
-  width: 80%;
-  left: 50%;
+  width: 0;
+  left: -50%;
   margin-left: -40%;
   text-align: center;
   bottom: 4.5rem;
   opacity: 0;
   transition: all 0.5s;
+  transform: rotate(-90deg);
 }
 
 .pbox:hover .quick-view-btn {
+  width: 80%;
+  left: 50%;
   opacity: 1;
+  transform: rotate(0);
+}
+
+.pbox:hover img.full-width {
+  transform: scale(1.2, 1.2);
+}
+
+.pbox img.full-width {
+  transition: all 1s;
 }
