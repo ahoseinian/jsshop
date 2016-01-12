@@ -17,10 +17,11 @@
     ])
     .config(config);
 
-  config.$inject = ['$stateProvider', '$urlRouterProvider'];
+  config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
-  function config($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/home');
+  function config($stateProvider, $urlRouterProvider, $locationProvider) {
+    $locationProvider.html5Mode(true);
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider
       .state('app', {
@@ -44,7 +45,7 @@
         }
       })
       .state('app.home', {
-        url: '/home',
+        url: '/',
         controller: 'HomeController as vm',
         templateUrl: '/js/home.html'
       });
