@@ -10,7 +10,7 @@
       templateUrl: '/js/directives/slider/mainSlider.html',
       controller: MainSliderController,
       controllerAs: 'vm',
-      scope: true,
+      scope: true
     };
   }
 

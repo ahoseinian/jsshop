@@ -86,7 +86,7 @@ html(ng-app="myApp", lang="fa")
                     = user.fullname
 
                   .dropdown-menu
-                    a.dropdown-item(href="/auth/logout")
+                    a.dropdown-item(href="/auth/logout", target="_self")
                       span.fa.fa-sign-out.fa-fw
                       span.m-r-1 خروج
 
@@ -96,12 +96,12 @@ html(ng-app="myApp", lang="fa")
                       span.m-r-1 پیگیری سفارشات
 
                     if user.seller
-                      a.dropdown-item(href="/panel") 
+                      a.dropdown-item(href="/panel", target="_self") 
                         span.fa.fa-user.fa-fw
                         span.m-r-1 پنل کاربری
 
                     if user.admin
-                      a.dropdown-item(href="/admin")
+                      a.dropdown-item(href="/admin", target="_self")
                         span.fa.fa-user.fa-fw
                         span.m-r-1 پنل ادمین
 

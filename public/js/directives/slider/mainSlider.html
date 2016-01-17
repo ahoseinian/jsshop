@@ -1,7 +1,6 @@
-<div class="ms-container">
-  <ul>
-    <li class="ms-list-item" ng-repeat="(k,slide) in vm.slides | filter:{name: vm.iteration}">
-	      <img ng-src="/images/mainSlider/{{slide.name}}.jpg">
-    </li>
-  </ul>
+<div class="ms-container m-b-1 hidden-sm-down">
+  <div class="slide" ng-include="'/js/directives/slider/slides/1.html'"></div>
+  <!--   <div class="slide" ng-include="'/js/directives/slider/slides/1.html'" ng-show="vm.iteration == 1"></div>
+  <div class="slide" ng-include="'/js/directives/slider/slides/1.html'" ng-show="vm.iteration == 2"></div>
+  <div class="slide" ng-include="'/js/directives/slider/slides/1.html'" ng-show="vm.iteration == 3"></div> -->
 </div>

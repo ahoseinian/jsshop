@@ -50,20 +50,6 @@ pre {
 }
 
 
-/*
-.slick-prev:before,
-.slick-next:before {
-  color: white;
-}
-
-.slick-next {
-  right: 17px;
-}
-
-.slick-prev {
-  left: 2px;
-  z-index: 5;
-}*/
 
 .modal .close {
   font-size: 2.5rem;
