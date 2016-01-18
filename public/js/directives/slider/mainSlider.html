@@ -1,6 +1,39 @@
 <div class="ms-container m-b-1 hidden-sm-down">
-  <div class="slide" ng-include="'/js/directives/slider/slides/1.html'"></div>
-  <!--   <div class="slide" ng-include="'/js/directives/slider/slides/1.html'" ng-show="vm.iteration == 1"></div>
-  <div class="slide" ng-include="'/js/directives/slider/slides/1.html'" ng-show="vm.iteration == 2"></div>
-  <div class="slide" ng-include="'/js/directives/slider/slides/1.html'" ng-show="vm.iteration == 3"></div> -->
+  <div class="slide">
+    <h3 class="p-a-1">
+    	<small>آخرین محصولات گروه</small> 
+	  	<span>{{cats[vm.iteration].name}}</span>
+  	</h3>
+
+    <div class="row m-r-1">
+      <div class="col-xs-6 col-md-2" ng-repeat="cat in cats[vm.iteration]._children | limitTo:4">
+        <a ui-sref="app.categories({name: cat.name})" class="category-block">
+          <div class="card">
+            <img ng-src="{{cat.image.two}}">
+          </div>
+          <div class="overlay">
+            <div class="fa fa-search-plus icon"></div>
+            <div class="m-t-1">مشاهده تمام محصولات</div>
+            <div class="m-r-1">
+              <strong> گروه {{cat.name}}</strong>
+              <span class="fa fa-angle-left fa-fw"></span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-xs-6 col-md-2">
+        <button class="btn btn-info" ui-sref="app.categories({name: cats[vm.iteration].name})">
+          <div>مشاهده تمام محصولات</div>
+          <div class="m-r-1">
+            <strong>گروه {{cats[vm.iteration].name}}</strong>
+            <span class="fa fa-angle-left fa-fw"></span>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <img class="left-image" ng-src="{{cats[vm.iteration].image.three}}">
+
+  </div>
 </div>

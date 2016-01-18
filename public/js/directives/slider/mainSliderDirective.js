@@ -14,27 +14,21 @@
     };
   }
 
-  MainSliderController.$inject = ['$interval'];
+  MainSliderController.$inject = ['$interval', '$rootScope'];
 
-  function MainSliderController($interval) {
+  function MainSliderController($interval, $rootScope) {
+    console.log($rootScope);
     var vm = this;
-    vm.slides = [{
-      name: 1
-    }, {
-      name: 2
-    }, {
-      name: 3
-    }];
-    vm.iteration = 1;
+    vm.iteration = 0;
 
     $interval(function () {
-      if (vm.iteration < vm.slides.length) {
+      if (vm.iteration < $rootScope.cats.length - 1) {
         vm.iteration++;
       } else {
-        vm.iteration = 1;
+        vm.iteration = 0;
       }
 
-    }, 12000);
+    }, 15000);
 
   }
 })();
