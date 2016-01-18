@@ -10,12 +10,12 @@
 }
 
 .mslider-container {
-  width: 145rem;
+  width: 157rem;
   padding: 1rem;
 }
 
 .mslider .card {
-  width: 11rem;
+  width: 12rem;
   display: inline-block;
   direction: rtl;
   padding-bottom: 0;
@@ -27,24 +27,15 @@
   margin-right: 0 !important;
 }
 
-
-/* Let's get this party started */
-
 .mslider::-webkit-scrollbar {
   height: 0.35rem;
 }
-
-
-/* Track */
 
 .mslider::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
-
-
-/* Handle */
 
 .mslider::-webkit-scrollbar-thumb {
   -webkit-border-radius: 2px;
