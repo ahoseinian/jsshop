@@ -50,6 +50,8 @@
 
 .category-block:hover img {
   transform: scale(1.2, 1.2);
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
 }
 
 .category-block:hover .overlay {

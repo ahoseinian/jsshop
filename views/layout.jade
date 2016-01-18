@@ -61,10 +61,10 @@ html(ng-app="myApp", lang="fa")
                             h5.m-b-0= child.name
                           .cat-child-container.clearfix
                             .row
-                              .col-xs-12.col-md-3
-                                ul.list-group.list-group-flush
+                              .col-xs-12.col-md-2
+                                ul.no-style.p-r-1.p-t-2
                                   each secondChild in child._children
-                                    li.list-group-item
+                                    li
                                       a(ui-sref="app.categories({name: '#{secondChild.name}'})")= secondChild.name
 
             .pull-xs-left
