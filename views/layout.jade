@@ -9,8 +9,6 @@ html(ng-app="myApp", lang="fa")
     meta(name="msapplication-TileColor", content="#ffffff")
     meta(name="msapplication-TileImage", content="images/icon/ms-icon-144x144.png")
     meta(name="theme-color", content="#ffffff")
-    meta(name="enamad", content="850850797")
-
 
     link(rel="apple-touch-icon", sizes="57x57", href="images/icon/apple-icon-57x57.png")
     link(rel="apple-touch-icon", sizes="60x60", href="images/icon/apple-icon-60x60.png")
@@ -27,8 +25,8 @@ html(ng-app="myApp", lang="fa")
     link(rel="icon", type="image/png", sizes="16x16", href="images/icon/favicon-16x16.png")
     link(rel="manifest", href="/manifest.json")
     
-    title LONLZII
-    //- title(ng-bind="(title ? title + ' | ':'') + ' میاریم!'")
+    //- title LONLZII
+    title(ng-bind="(title ? title + ' | ':'') + ' میاریم!'")
     each file in assets.main.css
       link(rel='stylesheet', href= file)
   body
