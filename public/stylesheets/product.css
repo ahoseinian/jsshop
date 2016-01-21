@@ -66,8 +66,11 @@
   text-align: center;
   bottom: 4.5rem;
   opacity: 0;
-  transition: all 0.5s;
-  transform: rotate(-90deg);
+  transition: all 0.2s;
+}
+
+.pbox:hover {
+  box-shadow: 0 0 4px 0px #ccc;
 }
 
 .pbox:hover .quick-view-btn {
@@ -82,5 +85,5 @@
 }
 
 .pbox img.full-width {
-  transition: all 1s;
+  transition: all 0.1s;
 }

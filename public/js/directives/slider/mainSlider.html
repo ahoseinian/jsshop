@@ -5,7 +5,7 @@
 	  	<span>{{cats[vm.iteration].name}}</span>
   	</h3>
 
-    <div class="row m-r-1">
+    <div class="row">
       <div class="col-xs-6 col-md-2 z-index-2" ng-repeat="cat in cats[vm.iteration]._children | limitTo:5">
         <a ui-sref="app.categories({name: cat.name})" class="category-block">
           <div class="card">
