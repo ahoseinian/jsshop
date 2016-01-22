@@ -15,7 +15,7 @@
       current: {},
       getAll: getAll,
       save: save,
-      remove: remove,
+      remove: remove
     };
 
     return ftry;
@@ -34,11 +34,10 @@
     }
 
     function remove(item) {
-      $http.delete(BASE_URL + item._id).success(function (res) {
-
+      $http.delete(BASE_URL + item._id).success(function () {
         ftry.items = ftry.items.filter(function (el) {
           return el._id !== item._id;
-        })
+        });
       });
     }
 
@@ -53,7 +52,7 @@
     }
 
     function update(item) {
-      return $http.put(BASE_URL + item._id, item).success(function (res) {
+      return $http.put(BASE_URL + item._id, item).success(function () {
         $('.modal').modal('hide');
       });
     }
